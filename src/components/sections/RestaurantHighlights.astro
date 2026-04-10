@@ -1,0 +1,49 @@
+﻿---
+import type { Lang } from '../../i18n/utils';
+import { restaurantHighlights } from '../../data/restaurant';
+import SmartImage from '../media/SmartImage.astro';
+
+interface Props { lang: Lang; }
+
+const { lang } = Astro.props;
+---
+
+<section data-modal-card-group>
+  <section class="px-8 py-16" data-animate>
+    <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2" data-stagger>
+      {restaurantHighlights.map((item) => (
+        <article
+          class="cursor-pointer overflow-hidden rounded-2xl bg-surfaceContainer p-0"
+          data-modal-trigger
+          data-modal-title={item.modalTitle[lang]}
+          data-modal-body={item.modalBody[lang]}
+          role="button"
+          tabindex="0"
+        >
+          <SmartImage src={item.image} alt={item.cardTitle[lang]} width={1200} height={840} class="h-56 w-full rounded-t-2xl object-cover" />
+          <div class="p-10">
+            <h2 class="mb-3 text-4xl font-headline">{item.cardTitle[lang]}</h2>
+            <p class="text-secondary">{item.cardDescription[lang]}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <div hidden data-modal role="dialog" aria-modal="true" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4">
+    <div class="w-full max-w-2xl rounded-2xl bg-[#F8F6F3] p-8">
+      <div class="mb-4 flex justify-end">
+        <button type="button" data-modal-close aria-label={lang === 'es' ? 'Cerrar modal' : 'Close modal'}>✕</button>
+      </div>
+      <h3 data-modal-title class="text-4xl font-headline"></h3>
+      <p data-modal-body class="mt-4 text-secondary"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initModalCards } from '../../lib/browser/modal-cards';
+  initModalCards();
+</script>
+
+

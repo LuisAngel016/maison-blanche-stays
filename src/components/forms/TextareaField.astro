@@ -1,0 +1,24 @@
+﻿---
+interface Props {
+  id: string;
+  label: string;
+  placeholder?: string;
+  rows?: number;
+  theme?: 'light' | 'dark';
+}
+
+const { id, label, placeholder = 'Escribí acá...', rows = 4, theme = 'light' } = Astro.props;
+const isLight = theme === 'light';
+---
+
+<div class="field-stack">
+  <label for={id} class:list={[ 'text-sm', isLight ? 'text-primary' : 'text-white/80' ]}>{label}</label>
+  <textarea
+    id={id}
+    name={id}
+    rows={rows}
+    placeholder={placeholder}
+    class="form-control w-full rounded-xl px-4 py-3"
+    style={`--field-bg:${isLight ? '#F3F1EE' : 'rgba(255,255,255,0.07)'};--field-border:${isLight ? '#DDD0BE' : 'rgba(255,255,255,0.18)'};--field-color:${isLight ? '#18160F' : '#F0E9DD'};--field-placeholder:${isLight ? '#B0A99C' : 'rgba(240,233,221,0.35)'};--field-focus:${isLight ? 'rgba(139,115,85,0.2)' : 'rgba(168,149,110,0.25)'};`}
+  ></textarea>
+</div>

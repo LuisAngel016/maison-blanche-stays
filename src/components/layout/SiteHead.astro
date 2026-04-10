@@ -1,0 +1,64 @@
+﻿---
+import type { Lang } from '../../i18n/utils';
+import { SITE_NAME, DEFAULT_OG_IMAGE, HOTEL_CONTACT } from '../../lib/site';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  pathname: string;
+  alternatePath: string;
+  image?: string;
+}
+
+const { lang, title, description, pathname, alternatePath, image = DEFAULT_OG_IMAGE } = Astro.props;
+const canonicalUrl = Astro.site ? new URL(pathname, Astro.site).toString() : null;
+const alternateUrl = Astro.site ? new URL(alternatePath, Astro.site).toString() : null;
+const imageUrl = Astro.site ? new URL(image, Astro.site).toString() : image;
+const oppositeLang = lang === 'es' ? 'en' : 'es';
+const ldJson = {
+  '@context': 'https://schema.org',
+  '@type': 'Hotel',
+  name: SITE_NAME,
+  description,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: HOTEL_CONTACT.address,
+    addressCountry: 'IT',
+  },
+  telephone: HOTEL_CONTACT.phone,
+  email: HOTEL_CONTACT.email,
+  url: canonicalUrl ?? pathname,
+  image: imageUrl,
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+<meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#faf9f7" />
+<title>{title}</title>
+
+{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+<link rel="alternate" hreflang={lang} href={canonicalUrl ?? pathname} />
+<link rel="alternate" hreflang={oppositeLang} href={alternateUrl ?? alternatePath} />
+{Astro.site && <link rel="alternate" hreflang="x-default" href={new URL('/es', Astro.site).toString()} />}
+<link rel="icon" href="/favicon.ico" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+<meta property="og:image" content={imageUrl} />
+{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(ldJson)} />
+

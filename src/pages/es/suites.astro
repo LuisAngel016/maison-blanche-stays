@@ -1,0 +1,24 @@
+﻿---
+import PageLayout from '../../layouts/PageLayout.astro';
+import RoomsShowcase from '../../components/home/RoomsShowcase.astro';
+import BookingForm from '../../components/forms/BookingForm.astro';
+import { getDictionary } from '../../i18n/utils';
+
+const d = getDictionary('es');
+---
+
+<PageLayout lang="es" route="suites">
+  <section class="bg-surfaceContainerLow px-8 py-28" data-animate>
+    <div class="mx-auto max-w-5xl text-center">
+      <p class="mb-3 text-xs uppercase tracking-[0.25em] text-primary">{d.pages.suites.eyebrow}</p>
+      <h1 class="mb-4 text-6xl font-headline">{d.pages.suites.title}</h1>
+      <p class="text-secondary">{d.pages.suites.subtitle}</p>
+    </div>
+  </section>
+  <RoomsShowcase lang="es" compact={true} />
+  <section class="bg-onBackground px-8 py-28 text-white" data-animate>
+    <div class="mx-auto max-w-7xl">
+      <BookingForm lang="es" variant="dark" />
+    </div>
+  </section>
+</PageLayout>

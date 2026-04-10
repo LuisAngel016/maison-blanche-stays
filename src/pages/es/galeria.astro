@@ -1,0 +1,11 @@
+﻿---
+import PageLayout from '../../layouts/PageLayout.astro';
+import GalleryGrid from '../../components/sections/GalleryGrid.astro';
+import { getDictionary } from '../../i18n/utils';
+
+const d = getDictionary('es');
+---
+
+<PageLayout lang="es" route="gallery">
+  <GalleryGrid lang="es" title={d.pages.gallery.title} eyebrow={d.pages.gallery.eyebrow} />
+</PageLayout>

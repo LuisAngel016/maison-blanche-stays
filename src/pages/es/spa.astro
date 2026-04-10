@@ -1,0 +1,24 @@
+﻿---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SpaTreatmentGrid from '../../components/sections/SpaTreatmentGrid.astro';
+import BookingForm from '../../components/forms/BookingForm.astro';
+import { getDictionary } from '../../i18n/utils';
+
+const d = getDictionary('es');
+---
+
+<PageLayout lang="es" route="spa">
+  <section class="bg-surfaceContainerLow px-8 py-28" data-animate>
+    <div class="mx-auto max-w-5xl text-center">
+      <p class="mb-3 text-xs uppercase tracking-[0.25em] text-primary">{d.pages.spa.eyebrow}</p>
+      <h1 class="text-6xl font-headline">{d.pages.spa.title}</h1>
+      <p class="mt-4 text-secondary">{d.pages.spa.subtitle}</p>
+    </div>
+  </section>
+  <SpaTreatmentGrid lang="es" />
+  <section class="bg-onBackground px-8 py-28 text-white" data-animate>
+    <div class="mx-auto max-w-7xl">
+      <BookingForm lang="es" variant="dark" />
+    </div>
+  </section>
+</PageLayout>

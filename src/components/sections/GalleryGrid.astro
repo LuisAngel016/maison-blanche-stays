@@ -1,0 +1,47 @@
+﻿---
+import type { Lang } from '../../i18n/utils';
+import { galleryImages } from '../../data/gallery';
+import SmartImage from '../media/SmartImage.astro';
+
+interface Props { lang: Lang; title: string; eyebrow?: string; }
+
+const { lang, title, eyebrow } = Astro.props;
+---
+
+<section class="bg-surface px-8 py-28" data-gallery-root>
+  <div class="mx-auto max-w-7xl">
+    <div class="mb-10">
+      {eyebrow && <p class="mb-3 text-xs uppercase tracking-[0.25em] text-primary">{eyebrow}</p>}
+      <h1 class="text-6xl font-headline">{title}</h1>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+      {galleryImages.map((image, index) => (
+        <button
+          type="button"
+          class="aspect-[4/3] overflow-hidden rounded-2xl"
+          data-lightbox-trigger
+          data-lightbox-src={image.src}
+          data-lightbox-alt={image.alt[lang]}
+          aria-label={`${lang === 'es' ? 'Abrir imagen' : 'Open image'} ${index + 1}`}
+        >
+          <SmartImage src={image.src} alt={image.alt[lang]} width={1200} height={900} class="h-full w-full rounded-2xl object-cover transition-transform duration-500 hover:scale-[1.02]" />
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div hidden data-lightbox role="dialog" aria-modal="true" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-6">
+    <button type="button" data-lightbox-close class="absolute right-6 top-6 text-3xl text-white" aria-label={lang === 'es' ? 'Cerrar galería' : 'Close gallery'}>✕</button>
+    <button type="button" data-lightbox-prev class="absolute left-6 text-4xl text-white" aria-label={lang === 'es' ? 'Imagen anterior' : 'Previous image'}>←</button>
+    <img data-lightbox-image src="" alt="" class="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain" />
+    <button type="button" data-lightbox-next class="absolute right-6 text-4xl text-white" aria-label={lang === 'es' ? 'Siguiente imagen' : 'Next image'}>→</button>
+  </div>
+</section>
+
+<script>
+  import { initGalleryLightboxes } from '../../lib/browser/gallery-lightbox';
+  initGalleryLightboxes();
+</script>
+
+

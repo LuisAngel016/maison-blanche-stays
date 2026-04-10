@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maison Blanche | Luxury Boutique Hotel Amalfi Coast</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#dfc29f",
+                        "tertiary": "#515f71",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c1b",
+                        "outline-variant": "#d1c4b9",
+                        "surface-tint": "#715b3e",
+                        "surface-container": "#efeeec",
+                        "inverse-surface": "#2f3130",
+                        "secondary-fixed-dim": "#ccc6b6",
+                        "on-primary-container": "#0a0400",
+                        "on-background": "#1a1c1b",
+                        "on-primary-fixed-variant": "#574329",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e9e8e6",
+                        "secondary-fixed": "#e8e2d1",
+                        "background": "#faf9f7",
+                        "outline": "#7f756b",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#b9c8dc",
+                        "surface-bright": "#faf9f7",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#0e1d2b",
+                        "on-surface-variant": "#4d453c",
+                        "inverse-primary": "#dfc29f",
+                        "surface-container-highest": "#e3e2e0",
+                        "surface": "#faf9f7",
+                        "on-tertiary-container": "#ffffff",
+                        "on-primary-fixed": "#281903",
+                        "primary": "#715b3e",
+                        "on-secondary-container": "#686457",
+                        "primary-fixed": "#fcdeba",
+                        "surface-container-low": "#f4f3f1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#8b7355",
+                        "surface-dim": "#dadad8",
+                        "on-tertiary-fixed-variant": "#3a4858",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#e8e2d1",
+                        "secondary": "#625e51",
+                        "tertiary-container": "#6a788a",
+                        "on-secondary-fixed": "#1e1c11",
+                        "on-secondary-fixed-variant": "#4a473a",
+                        "tertiary-fixed": "#d5e4f8",
+                        "inverse-on-surface": "#f1f1ef",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e3e2e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["EB Garamond", "Noto Serif", "serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .no-line { border: none !important; }
+        .editorial-shadow { box-shadow: 0 2px 24px rgba(24, 22, 15, 0.06); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- 1. STICKY NAV (JSON Derived) -->
+<nav class="fixed top-0 w-full z-50 bg-[#faf9f7]/60 backdrop-blur-md flex justify-between items-center px-8 md:px-12 py-6 w-full max-w-none shadow-[0_2px_24px_rgba(24,22,15,0.06)] no-line transition-colors duration-300">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-headline italic text-[#715b3e]" href="#">Maison Blanche</a>
+<div class="hidden md:flex items-center gap-8 font-['Noto_Serif'] font-normal tracking-wide">
+<a class="text-[#625e51] hover:text-[#715b3e] transition-all duration-300" href="#suites">Suites</a>
+<a class="text-[#625e51] hover:text-[#715b3e] transition-all duration-300" href="#restaurant">Restaurant</a>
+<a class="text-[#625e51] hover:text-[#715b3e] transition-all duration-300" href="#spa">Spa</a>
+<a class="text-[#625e51] hover:text-[#715b3e] transition-all duration-300" href="#gallery">Gallery</a>
+<a class="text-[#625e51] hover:text-[#715b3e] transition-all duration-300" href="#reserve">Reserve</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-2 text-xs tracking-widest uppercase font-label text-secondary">
+<span class="cursor-pointer text-primary font-semibold">EN</span>
+<span class="text-outline-variant">/</span>
+<span class="cursor-pointer hover:text-primary transition-colors">ES</span>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full text-sm font-medium tracking-wide hover:opacity-90 active:scale-95 transition-all">Book Now</button>
+</div>
+</nav>
+<!-- 2. HERO SECTION -->
+<header class="min-h-screen flex flex-col md:flex-row">
+<div class="w-full md:w-[55%] flex items-center px-8 md:px-20 py-32 bg-background">
+<div class="max-w-xl">
+<h1 class="text-6xl md:text-8xl font-headline leading-tight text-on-background mb-8">
+                    La quietud <br/>
+<span class="italic font-normal">como arte</span> <br/>
+                    de vivir
+                </h1>
+<p class="text-lg text-secondary font-light tracking-wide mb-12 max-w-md">
+                    Experience the timeless elegance of the Amalfi Coast in a sanctuary where every detail is a curated masterpiece.
+                </p>
+<div class="flex flex-wrap gap-6 mb-16">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-medium hover:bg-primary-container transition-all">Explore Collection</button>
+<button class="border border-outline-variant text-primary px-10 py-4 rounded-full font-medium hover:bg-surface-container-low transition-all">View Gallery</button>
+</div>
+<div class="grid grid-cols-3 gap-8 pt-8 border-t border-outline-variant/30">
+<div>
+<div class="text-2xl font-headline text-primary">18</div>
+<div class="text-[10px] uppercase tracking-widest text-secondary mt-1">Suites</div>
+</div>
+<div>
+<div class="text-2xl font-headline text-primary">★ 4.9</div>
+<div class="text-[10px] uppercase tracking-widest text-secondary mt-1">Guest Rating</div>
+</div>
+<div>
+<div class="text-2xl font-headline text-primary">1963</div>
+<div class="text-[10px] uppercase tracking-widest text-secondary mt-1">Established</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-[45%] bg-surface-container relative overflow-hidden group">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-64 h-64 border border-primary/20 rounded-full flex items-center justify-center">
+<span class="text-6xl font-headline italic text-primary/30">MB</span>
+</div>
+</div>
+<img class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-1000" data-alt="stunning sun-drenched terrace of a Mediterranean villa overlooking the deep blue Amalfi sea with white linens and limestone floors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHii1RTjYIMnRzoCYTXZuYKL8f9KXnynVGH-VMSuM0Iqmlq6q6K5WddRlPLgQKQDjIYrhsRGeHEDzSlZOiu9SarxcwHbl_feQEXEbnEZKSFp--fIbRRtmLOPKKH427_vpKIfNonO_tldzM1su9QzDAZlvZ2aMJDvQ2cXR-SIHr3cG68DcrkYZhZVP3OPxdG2b9PHFcBLhDH0KL4Lm6-Zop5-_LiuCLV7bm4cYQQqs1S-g33dkdhm1uEuDmLEns35i3UOzs6al8G8s"/>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+<span class="text-[10px] uppercase tracking-[0.3em] text-on-surface/60">Scroll</span>
+<div class="w-[1px] h-12 bg-on-surface/20 relative">
+<div class="absolute top-0 left-0 w-full h-1/2 bg-primary"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- 3. TRUST STRIP -->
+<section class="bg-[#1a1c1b] py-10 px-8">
+<div class="max-w-7xl mx-auto flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-60 grayscale brightness-200">
+<span class="text-xs tracking-[0.2em] uppercase font-label text-white">Condé Nast Traveler</span>
+<div class="hidden md:block w-12 h-[1px] bg-white/20"></div>
+<span class="text-xs tracking-[0.2em] uppercase font-label text-white">Forbes Travel Guide</span>
+<div class="hidden md:block w-12 h-[1px] bg-white/20"></div>
+<span class="text-xs tracking-[0.2em] uppercase font-label text-white">Michelin Guide 2024</span>
+<div class="hidden md:block w-12 h-[1px] bg-white/20"></div>
+<span class="text-xs tracking-[0.2em] uppercase font-label text-white">Tatler Travel Awards</span>
+</div>
+</section>
+<!-- 4. ROOMS SECTION -->
+<section class="py-32 px-8 bg-surface" id="suites">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<span class="text-xs uppercase tracking-[0.4em] text-primary font-medium mb-4 block">The Living Spaces</span>
+<h2 class="text-5xl md:text-6xl font-headline text-on-background">Uncompromising Comfort</h2>
+</div>
+<div class="flex justify-center gap-8 mb-16 overflow-x-auto pb-4">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary text-sm font-medium">All</button>
+<button class="px-6 py-2 rounded-full hover:bg-surface-container-high transition-colors text-sm font-medium text-secondary">Suites</button>
+<button class="px-6 py-2 rounded-full hover:bg-surface-container-high transition-colors text-sm font-medium text-secondary">Rooms</button>
+<button class="px-6 py-2 rounded-full hover:bg-surface-container-high transition-colors text-sm font-medium text-secondary">Villa</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Room Card 1 -->
+<div class="group bg-surface-container-lowest rounded-[20px] overflow-hidden editorial-shadow transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="luxury hotel suite with high ceilings, arched windows overlooking the sea, and minimalist high-end white linen furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPp4wynNy54lwQqpNubE6RFjUpWJo_sjBsAJowdwd590EgqtH_7uB6QGM-yRX4aVBMnjwgp_R9MafxXxXwtSwtmwJlPacOfXDiAgdAbop2qJXx4UXu3ptV3u8fQZbtfkCdwBK5iZ6YHTMIwAvf8vsba3in0Fi3b7Vg7vOcofuDyfNjcbDv_Ss7ri-6mK6gBd8C66Y9w3JsJr6qrclpTUsAjp7GWZkLvsU0mm22kwAsJEM1dSXw5u9u43R4KlAz_BkgrnOec6sKN24"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">Suite Tramonto</h3>
+<span class="text-xl font-headline text-primary">€850</span>
+</div>
+<p class="text-sm text-secondary font-light mb-6">Panoramic balcony with direct sunset views over Positano.</p>
+<div class="flex flex-wrap gap-2 pt-6 border-t border-outline-variant/20">
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">Sea View</span>
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">65 m²</span>
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">King Bed</span>
+</div>
+</div>
+</div>
+<!-- Room Card 2 -->
+<div class="group bg-surface-container-lowest rounded-[20px] overflow-hidden editorial-shadow transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="modern luxury hotel bedroom with light wood accents and soft ambient lighting from designer ceramic lamps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBotgE_GpNtZ09SxbhX7NtheHjg1U3yfOwBXCVrUiR98mqmi5xU-MqWnRT8zij62cYhQy2vqI5o1l_OEUXlIQxL-ltA4SbqV8RY3iYsyqQ6kU2v4es5JC0yJHKqeurMFOymMZybUNTyV112Ge2HwnUrfiOmgsu1JNNR-Wa_yHDq6awxTyhuGF_0rxJUPVyTk-hXmsyhYpbC3iyeSKSuXYNwu2CzY2kSsnkvv1gLT8tDZkLNyf7nXa9mt0BezT08XdC13HYcqSO9xFA"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">Deluxe Azure</h3>
+<span class="text-xl font-headline text-primary">€620</span>
+</div>
+<p class="text-sm text-secondary font-light mb-6">Serene interiors inspired by the Tyrrhenian sea hues.</p>
+<div class="flex flex-wrap gap-2 pt-6 border-t border-outline-variant/20">
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">Balcony</span>
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">42 m²</span>
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">Smart TV</span>
+</div>
+</div>
+</div>
+<!-- Room Card 3 -->
+<div class="group bg-surface-container-lowest rounded-[20px] overflow-hidden editorial-shadow transition-transform duration-500 hover:-translate-y-2">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="exclusive private villa bedroom with floor-to-ceiling glass walls opening to a private infinity pool" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_nV--yy5hjOgRlb2oVEBdoVaHSSCJNKX77tkn_QMyvQ1gjv9cC3Go_1nSNeuVt-OJl0045JTBCu6c6WVS-enB0NHxUWCJgHTHVVvALz7L6ATw_0eSWXS2X9UxYjaRj1ar9oV3dQ-Q_AqfPUyGlvxQXo-MtFMkyihOVz-JD6uZyov2TY0rbIrG2b90Hcx7DNvYvJauiVsT8sjek630WblRziGnBCIbZDqBtcAXV3rIsbKwvNft8VoaUkS2jkqd0tHERKZb3X_wZn8"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">Villa Bianca</h3>
+<span class="text-xl font-headline text-primary">€2,400</span>
+</div>
+<p class="text-sm text-secondary font-light mb-6">The ultimate privacy with personal garden and plunge pool.</p>
+<div class="flex flex-wrap gap-2 pt-6 border-t border-outline-variant/20">
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">Pool</span>
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">120 m²</span>
+<span class="text-[10px] uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full text-on-surface-variant">Butler Service</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. PHILOSOPHY SECTION -->
+<section class="py-32 px-8 bg-surface-container-lowest overflow-hidden">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
+<div class="md:w-1/2">
+<div class="sticky top-40">
+<h2 class="text-6xl md:text-7xl font-headline leading-tight text-on-background">
+                        El lujo <br/>
+<span class="italic font-normal">está en los</span> <br/>
+                        detalles
+                    </h2>
+<div class="mt-12 w-24 h-[2px] bg-primary"></div>
+</div>
+</div>
+<div class="md:w-1/2 flex flex-col gap-16">
+<div class="pb-16 border-b border-outline-variant/30">
+<span class="text-sm font-headline text-primary mb-6 block">01 / L'Art de Vivre</span>
+<h3 class="text-3xl font-headline mb-4">A Legacy of Stillness</h3>
+<p class="text-secondary leading-relaxed font-light">Founded in 1963, Maison Blanche has stood as a bastion of tranquility. We believe that true luxury is found in the quiet moments—the sound of waves hitting the cliffs, the scent of lemon blossoms, and the texture of fresh Italian linen.</p>
+</div>
+<div class="pb-16 border-b border-outline-variant/30">
+<span class="text-sm font-headline text-primary mb-6 block">02 / Gastronomy</span>
+<h3 class="text-3xl font-headline mb-4">Terroir-Driven Excellence</h3>
+<p class="text-secondary leading-relaxed font-light">Our culinary philosophy celebrates the Amalfi Coast's bountiful sea and volcanic soil. Each dish at La Terrazza is a conversation between traditional recipes and contemporary Mediterranean innovation.</p>
+</div>
+<div>
+<span class="text-sm font-headline text-primary mb-6 block">03 / Wellness</span>
+<h3 class="text-3xl font-headline mb-4">Holistic Mediterranean Spa</h3>
+<p class="text-secondary leading-relaxed font-light">Healing through the elements. Our spa treatments utilize locally sourced sea salt, olive oils, and citrus essences to rejuvenate the body and mind in complete harmony with the surroundings.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. EXPERIENCES (Masonry Style) -->
+<section class="py-32 px-8 bg-surface" id="gallery">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-xs uppercase tracking-[0.4em] text-primary font-medium mb-4 block">Curated Moments</span>
+<h2 class="text-5xl font-headline text-on-background">Hotel Experiences</h2>
+</div>
+<button class="text-sm font-medium text-primary flex items-center gap-2 hover:gap-4 transition-all">
+                    View All Gallery <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-8 group relative rounded-[24px] overflow-hidden bg-surface-container editorial-shadow cursor-pointer">
+<img class="w-full h-full min-h-[500px] object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="luxury private yacht sailing along the dramatic Amalfi coastline at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnh6OeS_w9mUHjEbzGsVhQ9tG1u8ntQjdhk2rFyDQTWIOcOZPNgb0KBXZ7fkdrxQbXtOgOYfE0rUov_o3XnfII5LDCImJeYb0cqXhqsSbNygJJO9o8vDG9xT52rsioDyX26nYzGZ4cJefzsMGPNqXicA4qmHs6aHkc0F6CO38HLDIhqsCNlKNdTKoWjt2UhHAQ7uaIyWI2KGARMl4APWTYrJjVTgVJ0HOKgptUbBE1Y1XY4zScn9bBAnIScdlzH2xhfd2g-FghLRg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-12">
+<span class="material-symbols-outlined text-white/80 mb-4 text-3xl">sailing</span>
+<h3 class="text-3xl font-headline text-white mb-2">Private Riva Sunset Tour</h3>
+<p class="text-white/70 font-light max-w-sm">An exclusive nautical journey along the rugged cliffs with vintage champagne service.</p>
+</div>
+</div>
+<div class="md:col-span-4 grid grid-rows-2 gap-6">
+<div class="group bg-surface-container-low rounded-[24px] p-8 flex flex-col justify-between border-2 border-transparent hover:border-primary/20 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary text-4xl">wine_bar</span>
+<div>
+<h3 class="text-xl font-headline mb-2">Vintage Wine Tasting</h3>
+<p class="text-xs text-secondary leading-relaxed">Explore our centuries-old cellar with our master sommelier.</p>
+</div>
+</div>
+<div class="group bg-surface-container-low rounded-[24px] p-8 flex flex-col justify-between border-2 border-transparent hover:border-primary/20 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary text-4xl">spa</span>
+<div>
+<h3 class="text-xl font-headline mb-2">Morning Yoga Terrace</h3>
+<p class="text-xs text-secondary leading-relaxed">Greet the sun with guided meditation overlooking the horizon.</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-6 group relative rounded-[24px] overflow-hidden bg-surface-container editorial-shadow cursor-pointer h-80">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="authentic Italian cooking class in an outdoor kitchen with fresh lemons and herbs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBccZ2Wa0cLFJFWWMOEfzyBJw-Th_uunU5iKZ_c07S1Off2Vzh6VuhsxOjPnOd_PGe33DDxcwXu-vNKQ3Wa_7ACvfNvBctdBuK6Ydy6RpaUWi4BaHwkOJpyQL77Zgl_eCkQdKTmFPAfUwhdvap4vL-mflh7qpXBzD8vzSwq9cWM230odtdk4pzlb6lZxXsOOwNQ4jw3pS1Zxt-g9wf5iX98J2w0mlCM1JulkofMNQyCUXiGFhzTYKwNDWABs8QtEY-UmjlxoXkNKU"/>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<h3 class="text-2xl font-headline text-white border-b border-white/40 pb-2">Culinary Masterclass</h3>
+</div>
+</div>
+<div class="md:col-span-6 group relative rounded-[24px] overflow-hidden bg-surface-container editorial-shadow cursor-pointer h-80">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" data-alt="serene infinity pool merging with the horizon of the Mediterranean sea" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiCA2FYD3KAf7iGI-BHHIw5jhHKsdTdTZgTC5FgrpWJYG5eEtl1MKukxtIcDc4Qx8w1zPawk8rMWtZKonqg9RTbBE5LEI4pzdwG9xYwIZ4SXmvKUZ-56NiR0fc40sXmdmHHBEQWSgB_6PX5vHpGz5FKXziaOn6-iG24ByTQXrowgCc2CAhnqVqoMmw9EqAIvAQdaUILTQmgGhLeAsVeJcYlUXzdMIg3rYZhqtqe95rWRglmz7NU1JNDP7laGXW9BRhrqjn0Q6oER8"/>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<h3 class="text-2xl font-headline text-white border-b border-white/40 pb-2">Cliffside Serenity</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. TESTIMONIAL -->
+<section class="py-32 px-8 bg-surface-container-low">
+<div class="max-w-4xl mx-auto text-center">
+<span class="material-symbols-outlined text-primary/20 text-8xl mb-8">format_quote</span>
+<blockquote class="text-3xl md:text-4xl font-headline italic leading-relaxed text-on-surface mb-12">
+                "There are places you visit once, and places that change how you breathe forever. Maison Blanche is the second. A masterpiece of understated luxury."
+            </blockquote>
+<div class="flex flex-col items-center">
+<span class="text-xs uppercase tracking-[0.3em] font-medium text-primary">Isabella Montgomery</span>
+<span class="text-[10px] text-secondary mt-1">Connoisseur Magazine</span>
+<div class="flex gap-3 mt-12">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. BOOKING FORM -->
+<section class="bg-[#1a1c1b] py-32 px-8 overflow-hidden relative" id="reserve">
+<!-- Decorative subtle circle -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] border border-white/5 rounded-full -mr-64 -mt-64"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
+<div>
+<h2 class="text-5xl md:text-6xl font-headline text-white leading-tight mb-8">Secure Your <br/>Mediterranean Escape</h2>
+<p class="text-white/60 font-light mb-12 max-w-md">Reserve your sanctuary in advance. Our concierge will follow up personally within 24 hours to tailor your stay.</p>
+<div class="flex gap-8 opacity-40 grayscale brightness-200 mt-16">
+<span class="text-[10px] uppercase tracking-[0.2em] text-white">CN Traveller Hot List</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-white">Leading Hotels of the World</span>
+</div>
+</div>
+<div class="bg-white/5 backdrop-blur-xl p-8 md:p-12 rounded-[24px] border border-white/10">
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative">
+<label class="absolute -top-3 left-4 text-[10px] uppercase tracking-widest text-primary font-bold bg-[#1a1c1b] px-2">Arrival</label>
+<input class="w-full bg-transparent border border-white/20 rounded-xl py-4 px-6 text-white text-sm focus:border-primary focus:ring-0 outline-none transition-all" type="date"/>
+</div>
+<div class="relative">
+<label class="absolute -top-3 left-4 text-[10px] uppercase tracking-widest text-primary font-bold bg-[#1a1c1b] px-2">Departure</label>
+<input class="w-full bg-transparent border border-white/20 rounded-xl py-4 px-6 text-white text-sm focus:border-primary focus:ring-0 outline-none transition-all" type="date"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative">
+<label class="absolute -top-3 left-4 text-[10px] uppercase tracking-widest text-primary font-bold bg-[#1a1c1b] px-2">Guests</label>
+<select class="w-full bg-[#1a1c1b] border border-white/20 rounded-xl py-4 px-6 text-white text-sm focus:border-primary focus:ring-0 outline-none transition-all appearance-none">
+<option>2 Adults</option>
+<option>3 Adults</option>
+<option>Family (2+2)</option>
+</select>
+</div>
+<div class="relative">
+<label class="absolute -top-3 left-4 text-[10px] uppercase tracking-widest text-primary font-bold bg-[#1a1c1b] px-2">Room Type</label>
+<select class="w-full bg-[#1a1c1b] border border-white/20 rounded-xl py-4 px-6 text-white text-sm focus:border-primary focus:ring-0 outline-none transition-all appearance-none">
+<option>Panoramic Suite</option>
+<option>Deluxe Azure</option>
+<option>Villa Bianca</option>
+</select>
+</div>
+</div>
+<div class="relative">
+<label class="absolute -top-3 left-4 text-[10px] uppercase tracking-widest text-primary font-bold bg-[#1a1c1b] px-2">Special Requests</label>
+<textarea class="w-full bg-transparent border border-white/20 rounded-xl py-4 px-6 text-white text-sm focus:border-primary focus:ring-0 outline-none transition-all placeholder:text-white/20" placeholder="Concierge notes..." rows="3"></textarea>
+</div>
+<button class="w-full bg-white text-[#1a1c1b] py-5 rounded-full font-semibold uppercase tracking-widest text-xs hover:bg-primary transition-colors hover:text-white active:scale-[0.98]">Request Reservation</button>
+</form>
+</div>
+</div>
+</section>
+<!-- 9. FOOTER (JSON & Layout Derived) -->
+<footer class="bg-[#efeeec] w-full rounded-t-[24px] px-8 md:px-16 pt-24 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<a class="text-3xl font-headline italic text-[#715b3e] mb-8 block" href="#">Maison Blanche</a>
+<p class="text-secondary text-sm leading-relaxed mb-8">Join our curated letter for seasonal updates and exclusive early access.</p>
+<div class="flex bg-surface-container-lowest rounded-full p-1 border border-outline-variant/30 max-w-sm">
+<input class="bg-transparent border-none focus:ring-0 text-sm px-6 py-2 w-full" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary p-2 rounded-full material-symbols-outlined">chevron_right</button>
+</div>
+</div>
+<div>
+<h4 class="text-xs tracking-widest uppercase font-label text-primary mb-8">The Hotel</h4>
+<ul class="space-y-4 text-sm font-label text-secondary tracking-widest uppercase">
+<li><a class="hover:underline decoration-1 underline-offset-4" href="#">Our History</a></li>
+<li><a class="hover:underline decoration-1 underline-offset-4" href="#">Sustainability</a></li>
+<li><a class="hover:underline decoration-1 underline-offset-4" href="#">Careers</a></li>
+<li><a class="hover:underline decoration-1 underline-offset-4" href="#">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs tracking-widest uppercase font-label text-primary mb-8">Services</h4>
+<ul class="space-y-4 text-sm font-label text-secondary tracking-widest uppercase">
+<li><a class="hover:underline decoration-1 underline-offset-4" href="#">Concierge</a></li>
+<li><a class="hover:underline decoration-1 underline-offset-4" href="#">Private Transfers</a></li>
+<li><a class="hover:underline decoration-1 underline-offset-4" href="#">Event Planning</a></li>
+<li><a class="hover:underline decoration-1 underline-offset-4" href="#">Villa Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs tracking-widest uppercase font-label text-primary mb-8">Contact</h4>
+<div class="space-y-4 text-sm text-secondary leading-relaxed font-light">
+<p>Via Belsito 42, Positano (SA), Italy</p>
+<p>+39 089 123 4567</p>
+<p>reservations@maisonblanche.it</p>
+<div class="flex gap-4 pt-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">share_location</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">photo_camera</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-[10px] text-secondary tracking-widest uppercase">© 2024 Maison Blanche. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-[10px] text-secondary tracking-widest uppercase hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-[10px] text-secondary tracking-widest uppercase hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+<p class="text-[10px] text-secondary/40 tracking-widest uppercase">Built with Next.js</p>
+</div>
+</footer>
+</body></html>

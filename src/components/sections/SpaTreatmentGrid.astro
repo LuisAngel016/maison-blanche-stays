@@ -1,0 +1,43 @@
+﻿---
+import type { Lang } from '../../i18n/utils';
+import { spaTreatments } from '../../data/spa';
+import SmartImage from '../media/SmartImage.astro';
+
+interface Props { lang: Lang; }
+
+const { lang } = Astro.props;
+---
+
+<section class="px-8 py-16" data-animate data-spa-grid>
+  <div class="mx-auto grid max-w-7xl gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3" data-stagger>
+    {spaTreatments.map((treatment, index) => {
+      const detailId = `spa-detail-${lang}-${index}`;
+      return (
+        <article class="group transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+          <div class="aspect-[3/2] overflow-hidden rounded-t-2xl">
+            <SmartImage src={treatment.image} alt={treatment.title[lang]} width={1200} height={800} class="h-full w-full rounded-t-2xl object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+          </div>
+          <div class="rounded-b-2xl border border-t-0 border-[#E8E5E0] bg-[#F3F1EE] p-6">
+            <h2 class="font-headline text-xl">{treatment.title[lang]}</h2>
+            <div class="mt-2 flex items-center justify-between">
+              <span class="rounded-full border border-[#D7D2CA] px-3 py-1 text-xs">{treatment.duration}</span>
+              <span class="font-headline text-lg text-primary">{treatment.price}</span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-secondary">{treatment.description[lang]}</p>
+            <button type="button" class="mt-3 text-sm text-primary" data-spa-toggle aria-controls={detailId} aria-expanded="false">
+              {lang === 'es' ? 'Ver tratamiento →' : 'View treatment →'}
+            </button>
+            <div hidden id={detailId} class="pt-3 text-sm text-secondary">
+              {treatment.details[lang]}
+            </div>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+</section>
+
+<script>
+  import { initSpaTreatmentCards } from '../../lib/browser/spa-treatments';
+  initSpaTreatmentCards();
+</script>

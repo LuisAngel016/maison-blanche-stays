@@ -1,0 +1,119 @@
+﻿{
+  "meta": {
+    "siteName": "Maison Blanche",
+    "title": "Maison Blanche | Hotel Boutique de Lujo Costa Amalfitana",
+    "description": "Una experiencia editorial frente al mar en la Costa Amalfitana."
+  },
+  "nav": {
+    "suites": "Suites",
+    "restaurant": "Restaurant",
+    "spa": "Spa",
+    "gallery": "Galería",
+    "reserve": "Reservar",
+    "bookNow": "Reservar"
+  },
+  "hero": {
+    "title1": "La quietud",
+    "title2": "como arte",
+    "title3": "de vivir",
+    "line1": "La quietud",
+    "line2": "como arte",
+    "line3": "de vivir",
+    "subtitle": "Viví la elegancia atemporal de la Costa Amalfitana en un santuario donde cada detalle está curado.",
+    "ctaPrimary": "Explorar colección",
+    "ctaSecondary": "Ver galería",
+    "statSuites": "Suites",
+    "statRating": "Valoración",
+    "statEstablished": "Fundado"
+  },
+  "trust": {
+    "items": [
+      "Condé Nast Traveler",
+      "Forbes Travel Guide",
+      "Michelin Guide 2024",
+      "Tatler Travel Awards"
+    ]
+  },
+  "rooms": {
+    "eyebrow": "Espacios para vivir",
+    "title": "Confort sin concesiones",
+    "all": "Todos",
+    "suites": "Suites",
+    "rooms": "Habitaciones",
+    "villa": "Villa",
+    "perNight": "/ noche",
+    "viewSuite": "Ver suite"
+  },
+  "philosophy": {
+    "title1": "El lujo",
+    "title2": "está en los",
+    "title3": "detalles"
+  },
+  "experiences": {
+    "eyebrow": "Momentos curados",
+    "title": "Experiencias del hotel",
+    "viewAll": "Ver galería completa"
+  },
+  "testimonials": {
+    "quotes": [
+      {
+        "text": "Hay lugares que visitás una vez y lugares que te cambian la forma de respirar para siempre. Maison Blanche es lo segundo.",
+        "author": "Isabella Montgomery",
+        "source": "Connoisseur Magazine"
+      },
+      {
+        "text": "Un santuario de calma donde arquitectura, mar y servicio están en perfecta armonía.",
+        "author": "Luca Ferri",
+        "source": "Voyage Italia"
+      },
+      {
+        "text": "Cada rincón se siente intencional. Cálido, elegante e inolvidable.",
+        "author": "Emma Clarke",
+        "source": "Private Escapes Journal"
+      }
+    ]
+  },
+  "booking": {
+    "title": "Asegurá tu escape mediterráneo",
+    "subtitle": "Reservá tu santuario con anticipación. Nuestro concierge te responde en menos de 24 horas.",
+    "arrival": "Llegada",
+    "departure": "Salida",
+    "guests": "Huéspedes",
+    "roomType": "Tipo de habitación",
+    "requests": "Solicitudes especiales",
+    "submit": "Solicitar reserva",
+    "success": "Gracias. Tu solicitud de reserva se envió correctamente.",
+    "placeholder": "Notas para concierge..."
+  },
+  "footer": {
+    "newsletter": "Sumate a nuestra carta curada con novedades de temporada y acceso anticipado.",
+    "hotel": "El hotel",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "pages": {
+    "suites": {
+      "eyebrow": "Alojamiento",
+      "title": "Suites y habitaciones",
+      "subtitle": "Una colección curada de suites al mar, habitaciones íntimas y una villa privada."
+    },
+    "restaurant": {
+      "eyebrow": "Il Ristorante",
+      "title": "Il Ristorante",
+      "subtitle": "Cocina mediterránea guiada por estacionalidad y terroir amalfitano."
+    },
+    "spa": {
+      "eyebrow": "Spa & Benessere",
+      "title": "Spa & Benessere",
+      "subtitle": "Rituales inspirados en sal marina, cítricos y quietud restauradora."
+    },
+    "gallery": {
+      "eyebrow": "Bitácora visual",
+      "title": "Galería"
+    },
+    "reserve": {
+      "eyebrow": "Reservas",
+      "title": "Reservá tu estadía"
+    }
+  }
+}

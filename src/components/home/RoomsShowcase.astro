@@ -1,0 +1,111 @@
+﻿---
+import { rooms } from '../../data/rooms';
+import { type Lang, useTranslations } from '../../i18n/utils';
+import { getLocalizedPath } from '../../lib/routes';
+import SmartImage from '../media/SmartImage.astro';
+
+interface Props { lang: Lang; compact?: boolean; }
+
+const { lang, compact = false } = Astro.props;
+const t = useTranslations(lang);
+const categories = [
+  { key: 'all', label: t('rooms.all') },
+  { key: 'suites', label: t('rooms.suites') },
+  { key: 'habitaciones', label: t('rooms.rooms') },
+  { key: 'villa', label: t('rooms.villa') },
+] as const;
+---
+
+<section class:list={['bg-surface px-8', compact ? 'py-20' : 'py-28']} data-animate data-room-showcase>
+  <div class="mx-auto max-w-7xl">
+    {!compact && (
+      <div class="mb-14 text-center">
+        <p class="mb-4 text-xs uppercase tracking-[0.28em] text-primary">{t('rooms.eyebrow')}</p>
+        <h2 class="text-5xl font-headline text-onBackground md:text-6xl">{t('rooms.title')}</h2>
+      </div>
+    )}
+
+    {!compact && (
+      <div class="mb-12 flex flex-wrap justify-center gap-3">
+        {categories.map((category, index) => (
+          <button
+            type="button"
+            class="rounded-full px-5 py-2 text-sm transition-colors hover:bg-surfaceContainerHigh data-[active=true]:bg-primary data-[active=true]:text-white"
+            data-tab={category.key}
+            data-active={index === 0 ? 'true' : 'false'}
+          >
+            {category.label}
+          </button>
+        ))}
+      </div>
+    )}
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3" data-stagger>
+      {rooms.map((room) => {
+        const roomName = lang === 'es' ? room.nameEs : room.nameEn;
+        const roomDescription = lang === 'es' ? room.descEs : room.descEn;
+        const categoryLabel = t(`rooms.${room.category === 'habitaciones' ? 'rooms' : room.category}`);
+
+        return (
+          <article
+            class="room-card group overflow-hidden rounded-3xl bg-surfaceContainerLowest shadow-editorial transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#18160F]/10"
+            data-room-card
+            data-room-category={room.category}
+            data-room-category-label={categoryLabel}
+            data-room-name={roomName}
+            data-room-description={roomDescription}
+            data-room-price={`${room.price} ${t('rooms.perNight')}`}
+            data-room-image={room.image}
+            data-room-features={JSON.stringify(room.features)}
+            role="button"
+            tabindex="0"
+          >
+            <div class="h-72 w-full overflow-hidden rounded-t-2xl">
+              <SmartImage src={room.image} alt={roomName} width={1200} height={960} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" class="h-72 w-full rounded-t-2xl object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div class="p-6">
+              <p class="mb-2 text-[10px] uppercase tracking-[0.2em] text-secondary">{categoryLabel}</p>
+              <h3 class="mb-2 text-2xl font-headline">{roomName}</h3>
+              <p class="mb-4 text-sm text-secondary">{roomDescription}</p>
+              <div class="mb-5 flex flex-wrap gap-2">
+                {room.features.map((feature) => <span class="pill">{feature}</span>)}
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="font-medium text-primary">{room.price} {t('rooms.perNight')}</span>
+                <a href={getLocalizedPath(lang, 'reserve')} class="editorial-link">{t('rooms.viewSuite')} →</a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+
+  <div hidden data-room-modal role="dialog" aria-modal="true" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4">
+    <div class="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-[#F8F6F3]">
+      <div class="sticky top-0 z-[101] flex justify-end bg-[#F8F6F3] p-4">
+        <button type="button" data-room-modal-close class="rounded-full border border-[#E8E5E0] px-3 py-1 text-sm" aria-label={lang === 'es' ? 'Cerrar modal' : 'Close modal'}>✕</button>
+      </div>
+      <div class="grid gap-6 p-6 md:grid-cols-2">
+        <SmartImage src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85&fit=crop" alt={lang === 'es' ? 'Suite destacada' : 'Featured suite'} width={1200} height={900} class="h-80 w-full rounded-2xl object-cover" data-room-modal-image />
+        <div>
+          <p data-room-modal-category class="text-xs uppercase tracking-[0.2em] text-secondary"></p>
+          <h3 data-room-modal-name class="mt-2 text-4xl font-headline"></h3>
+          <p data-room-modal-price class="mt-2 text-2xl font-headline text-primary"></p>
+          <p data-room-modal-description class="mt-4 text-secondary"></p>
+          <div data-room-modal-features class="mt-4 flex flex-wrap gap-2"></div>
+          <a href={getLocalizedPath(lang, 'reserve')} class="mt-6 inline-block rounded-full bg-primary px-6 py-3 text-sm text-white">
+            {lang === 'es' ? 'Reservar esta suite' : 'Reserve this suite'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initRoomShowcases } from '../../lib/browser/room-showcase';
+  initRoomShowcases();
+</script>
+
+

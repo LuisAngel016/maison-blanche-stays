@@ -1,0 +1,30 @@
+﻿---
+interface Props {
+  id: string;
+  label: string;
+  options: { value: string; label: string }[];
+  theme?: 'light' | 'dark';
+}
+
+const { id, label, options, theme = 'light' } = Astro.props;
+const isLight = theme === 'light';
+---
+
+<div class="field-stack">
+  <label for={id} class:list={[ 'text-sm', isLight ? 'text-primary' : 'text-white/80' ]}>{label}</label>
+  <div class="relative">
+    <select
+      id={id}
+      name={id}
+      class="form-control w-full appearance-none rounded-xl px-4 py-3 pr-11"
+      style={`--field-bg:${isLight ? '#F3F1EE' : 'rgba(255,255,255,0.07)'};--field-border:${isLight ? '#DDD0BE' : 'rgba(255,255,255,0.18)'};--field-color:${isLight ? '#18160F' : '#F0E9DD'};--field-placeholder:${isLight ? '#B0A99C' : 'rgba(240,233,221,0.35)'};--field-focus:${isLight ? 'rgba(139,115,85,0.2)' : 'rgba(168,149,110,0.25)'};`}
+    >
+      {options.map((option) => <option value={option.value}>{option.label}</option>)}
+    </select>
+    <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-primary/80">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </span>
+  </div>
+</div>

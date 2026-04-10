@@ -1,0 +1,92 @@
+﻿---
+import { getDictionary, type Lang } from '../../i18n/utils';
+import DateField from './DateField.astro';
+import SelectField from './SelectField.astro';
+import TextareaField from './TextareaField.astro';
+
+interface Props {
+  lang: Lang;
+  variant?: 'dark' | 'light';
+  heading?: string;
+  description?: string;
+  showIntro?: boolean;
+  successId?: string;
+}
+
+const {
+  lang,
+  variant = 'dark',
+  heading,
+  description,
+  showIntro = true,
+  successId = `booking-success-${crypto.randomUUID()}`,
+} = Astro.props;
+const dict = getDictionary(lang);
+const theme = variant === 'light' ? 'light' : 'dark';
+const sectionClass = variant === 'light'
+  ? 'rounded-[24px] border border-outlineVariant/40 bg-surfaceContainerLowest p-8'
+  : 'rounded-[24px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl';
+const submitClass = variant === 'light'
+  ? 'w-full rounded-full bg-primary px-6 py-4 text-xs uppercase tracking-[0.2em] text-white'
+  : 'w-full rounded-full bg-white px-6 py-4 text-xs uppercase tracking-[0.2em] text-onBackground';
+const successClass = variant === 'light'
+  ? 'rounded-xl bg-emerald-100 text-emerald-700'
+  : 'rounded-xl bg-emerald-300/10 text-emerald-200';
+---
+
+<section class:list={[showIntro ? 'grid gap-16 lg:grid-cols-[0.9fr_1fr]' : '', showIntro && variant === 'dark' ? 'items-start' : '', !showIntro ? '' : '']}>
+  {showIntro && (
+    <div class:list={[variant === 'dark' ? 'text-white' : 'text-onBackground']}>
+      <h2 class="mb-6 text-5xl font-headline md:text-6xl">{heading ?? dict.booking.title}</h2>
+      <p class:list={[variant === 'dark' ? 'max-w-md text-white/70' : 'max-w-md text-secondary']}>
+        {description ?? dict.booking.subtitle}
+      </p>
+    </div>
+  )}
+
+  <div class={sectionClass}>
+    <form data-booking-form data-success-id={successId} class="space-y-7">
+      <div class="grid gap-6 md:grid-cols-2">
+        <DateField id={`${lang}-arrival-${variant}`} label={dict.booking.arrival} theme={theme} minDate="today" linkedTo={`${lang}-departure-${variant}`} />
+        <DateField id={`${lang}-departure-${variant}`} label={dict.booking.departure} theme={theme} minDate="today" />
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <SelectField
+          id={`${lang}-guests-${variant}`}
+          label={dict.booking.guests}
+          theme={theme}
+          options={[
+            { value: '2', label: lang === 'es' ? '2 adultos' : '2 adults' },
+            { value: '3', label: lang === 'es' ? '3 adultos' : '3 adults' },
+            { value: '4', label: lang === 'es' ? 'Familia (2+2)' : 'Family (2+2)' },
+          ]}
+        />
+        <SelectField
+          id={`${lang}-room-${variant}`}
+          label={dict.booking.roomType}
+          theme={theme}
+          options={[
+            { value: 'tramonto', label: 'Suite Tramonto' },
+            { value: 'azure', label: 'Deluxe Azure' },
+            { value: 'bianca', label: 'Villa Bianca' },
+          ]}
+        />
+      </div>
+      <TextareaField id={`${lang}-requests-${variant}`} label={dict.booking.requests} placeholder={dict.booking.placeholder} theme={theme} rows={showIntro ? 3 : 4} />
+
+      <button class={submitClass} type="submit">{dict.booking.submit}</button>
+
+      <div id={successId} hidden data-visible="false" class:list={['pointer-events-none p-3 text-sm transition-opacity duration-500', successClass]}>
+        {dict.booking.success}
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  import { initBookingForms } from '../../lib/browser/booking-form';
+  import { initDatePickers } from '../../lib/browser/date-picker';
+
+  initBookingForms();
+  initDatePickers();
+</script>

@@ -1,0 +1,26 @@
+﻿---
+import '../styles/index.css';
+import SiteHead from '../components/layout/SiteHead.astro';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  pathname: string;
+  alternatePath: string;
+  image?: string;
+}
+
+const { lang, title, description, pathname, alternatePath, image } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <SiteHead lang={lang} title={title} description={description} pathname={pathname} alternatePath={alternatePath} image={image} />
+  </head>
+  <body class="bg-background font-body text-onBackground antialiased">
+    <slot />
+  </body>
+</html>

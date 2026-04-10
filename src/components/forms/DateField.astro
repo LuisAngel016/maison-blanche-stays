@@ -1,0 +1,39 @@
+﻿---
+interface Props {
+  id: string;
+  label: string;
+  placeholder?: string;
+  minDate?: string;
+  linkedTo?: string;
+  theme?: 'light' | 'dark';
+}
+
+const { id, label, placeholder = 'dd / mm / aaaa', minDate = 'today', linkedTo, theme = 'light' } = Astro.props;
+const isLight = theme === 'light';
+---
+
+<div class="field-stack">
+  <label for={id} class:list={[ 'text-sm', isLight ? 'text-primary' : 'text-white/80' ]}>{label}</label>
+  <div class="relative">
+    <input
+      id={id}
+      name={id}
+      data-date-picker
+      data-min-date={minDate}
+      data-linked-to={linkedTo}
+      type="text"
+      autocomplete="off"
+      placeholder={placeholder}
+      class="form-control w-full rounded-xl px-4 py-3 pr-11"
+      style={`--field-bg:${isLight ? '#F3F1EE' : 'rgba(255,255,255,0.07)'};--field-border:${isLight ? '#DDD0BE' : 'rgba(255,255,255,0.18)'};--field-color:${isLight ? '#18160F' : '#F0E9DD'};--field-placeholder:${isLight ? '#B0A99C' : 'rgba(240,233,221,0.35)'};--field-focus:${isLight ? 'rgba(139,115,85,0.2)' : 'rgba(168,149,110,0.25)'};`}
+    />
+    <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-primary/80">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="4.5" y="6.5" width="15" height="13" rx="2.5" stroke="currentColor" stroke-width="1.6"></rect>
+        <path d="M8 4.8V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+        <path d="M16 4.8V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+        <path d="M4.5 10H19.5" stroke="currentColor" stroke-width="1.4"></path>
+      </svg>
+    </span>
+  </div>
+</div>

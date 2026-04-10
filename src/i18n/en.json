@@ -1,0 +1,119 @@
+﻿{
+  "meta": {
+    "siteName": "Maison Blanche",
+    "title": "Maison Blanche | Luxury Boutique Hotel Amalfi Coast",
+    "description": "A sun-drenched editorial stay on the Amalfi Coast."
+  },
+  "nav": {
+    "suites": "Suites",
+    "restaurant": "Restaurant",
+    "spa": "Spa",
+    "gallery": "Gallery",
+    "reserve": "Reserve",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "title1": "La quietud",
+    "title2": "como arte",
+    "title3": "de vivir",
+    "line1": "Stillness",
+    "line2": "as an art",
+    "line3": "of living",
+    "subtitle": "Experience the timeless elegance of the Amalfi Coast in a sanctuary where every detail is a curated masterpiece.",
+    "ctaPrimary": "Explore Collection",
+    "ctaSecondary": "View Gallery",
+    "statSuites": "Suites",
+    "statRating": "Guest Rating",
+    "statEstablished": "Established"
+  },
+  "trust": {
+    "items": [
+      "Condé Nast Traveler",
+      "Forbes Travel Guide",
+      "Michelin Guide 2024",
+      "Tatler Travel Awards"
+    ]
+  },
+  "rooms": {
+    "eyebrow": "The living spaces",
+    "title": "Uncompromising comfort",
+    "all": "All",
+    "suites": "Suites",
+    "rooms": "Rooms",
+    "villa": "Villa",
+    "perNight": "/ night",
+    "viewSuite": "View suite"
+  },
+  "philosophy": {
+    "title1": "Luxury",
+    "title2": "lives in",
+    "title3": "the details"
+  },
+  "experiences": {
+    "eyebrow": "Curated moments",
+    "title": "Hotel experiences",
+    "viewAll": "View full gallery"
+  },
+  "testimonials": {
+    "quotes": [
+      {
+        "text": "There are places you visit once, and places that change how you breathe forever. Maison Blanche is the second.",
+        "author": "Isabella Montgomery",
+        "source": "Connoisseur Magazine"
+      },
+      {
+        "text": "A sanctuary of stillness where architecture, sea and service are perfectly choreographed.",
+        "author": "Luca Ferri",
+        "source": "Voyage Italia"
+      },
+      {
+        "text": "Every corner feels intentionally designed. Warm, elegant, unforgettable.",
+        "author": "Emma Clarke",
+        "source": "Private Escapes Journal"
+      }
+    ]
+  },
+  "booking": {
+    "title": "Secure your Mediterranean escape",
+    "subtitle": "Reserve your sanctuary in advance. Our concierge will follow up personally within 24 hours.",
+    "arrival": "Arrival",
+    "departure": "Departure",
+    "guests": "Guests",
+    "roomType": "Room Type",
+    "requests": "Special Requests",
+    "submit": "Request Reservation",
+    "success": "Thank you. Your reservation request was sent successfully.",
+    "placeholder": "Concierge notes..."
+  },
+  "footer": {
+    "newsletter": "Join our curated letter for seasonal updates and exclusive early access.",
+    "hotel": "The hotel",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "pages": {
+    "suites": {
+      "eyebrow": "Accommodations",
+      "title": "Suites & Rooms",
+      "subtitle": "A curated collection of sea-facing suites, intimate rooms and a private villa."
+    },
+    "restaurant": {
+      "eyebrow": "Il Ristorante",
+      "title": "The Restaurant",
+      "subtitle": "Mediterranean cuisine guided by seasonality and the Amalfi terroir."
+    },
+    "spa": {
+      "eyebrow": "Spa & Wellness",
+      "title": "Spa & Wellness",
+      "subtitle": "Rituals inspired by sea salt, citrus and restorative stillness."
+    },
+    "gallery": {
+      "eyebrow": "Visual journal",
+      "title": "Gallery"
+    },
+    "reserve": {
+      "eyebrow": "Reservations",
+      "title": "Reserve your stay"
+    }
+  }
+}

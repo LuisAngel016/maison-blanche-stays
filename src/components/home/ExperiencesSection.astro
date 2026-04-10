@@ -1,0 +1,44 @@
+﻿---
+import { getDictionary, type Lang } from '../../i18n/utils';
+import { getLocalizedPath } from '../../lib/routes';
+import SmartImage from '../media/SmartImage.astro';
+
+interface Props { lang: Lang; }
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+---
+
+<section class="bg-surface px-8 py-28" data-animate>
+  <div class="mx-auto max-w-7xl">
+    <div class="mb-10 flex items-end justify-between gap-6">
+      <div>
+        <p class="mb-3 text-xs uppercase tracking-[0.3em] text-primary">{dict.experiences.eyebrow}</p>
+        <h2 class="text-5xl font-headline">{dict.experiences.title}</h2>
+      </div>
+      <a href={getLocalizedPath(lang, 'gallery')} class="editorial-link">{dict.experiences.viewAll}</a>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-12" data-stagger>
+      <article class="relative overflow-hidden rounded-3xl md:col-span-8">
+        <SmartImage src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=85&fit=crop" alt={lang === 'es' ? 'Excursión privada en yate' : 'Private yacht excursion'} width={1600} height={960} sizes="(min-width: 768px) 66vw, 100vw" class="h-[420px] w-full rounded-2xl object-cover" />
+      </article>
+      <div class="space-y-6 md:col-span-4">
+        <article class="rounded-3xl bg-surfaceContainerLow p-8">
+          <h3 class="mb-2 text-2xl font-headline">{lang === 'es' ? 'Cata de vinos' : 'Wine tasting'}</h3>
+          <p class="text-sm text-secondary">{lang === 'es' ? 'Recorrido por nuestra cava con sommelier.' : 'Explore our cellar with our sommelier.'}</p>
+        </article>
+        <article class="rounded-3xl bg-surfaceContainerLow p-8">
+          <h3 class="mb-2 text-2xl font-headline">{lang === 'es' ? 'Yoga al amanecer' : 'Morning yoga'}</h3>
+          <p class="text-sm text-secondary">{lang === 'es' ? 'Meditación guiada frente al mar.' : 'Guided meditation above the coast.'}</p>
+        </article>
+      </div>
+      <article class="overflow-hidden rounded-3xl md:col-span-6">
+        <SmartImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=85&fit=crop" alt={lang === 'es' ? 'Masterclass gastronómica' : 'Gastronomy masterclass'} width={1200} height={720} class="h-72 w-full rounded-2xl object-cover" />
+      </article>
+      <article class="overflow-hidden rounded-3xl md:col-span-6">
+        <SmartImage src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=85&fit=crop" alt={lang === 'es' ? 'Vista de la piscina' : 'Pool view'} width={1200} height={720} class="h-72 w-full rounded-2xl object-cover" />
+      </article>
+    </div>
+  </div>
+</section>

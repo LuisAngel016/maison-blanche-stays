@@ -1,0 +1,42 @@
+﻿---
+import { getDictionary, type Lang } from '../../i18n/utils';
+import { getNavigationLinks } from '../../lib/routes';
+
+interface Props {
+  lang: Lang;
+  homeHref: string;
+  reserveHref: string;
+  switchHref: string;
+}
+
+const { lang, homeHref, reserveHref, switchHref } = Astro.props;
+const dict = getDictionary(lang);
+const links = getNavigationLinks(lang);
+---
+
+<header class="site-header fixed inset-x-0 top-0 z-50" data-site-header data-scrolled="false">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-6 md:px-12" aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
+    <div class="flex items-center gap-8">
+      <a href={homeHref} class="nav-link text-2xl italic font-headline text-onBackground">Maison Blanche</a>
+      <div class="hidden items-center gap-7 md:flex">
+        {links.map((link) => (
+          <a href={link.href} class="nav-link text-sm tracking-wide text-onBackground transition-colors hover:text-primary">{link.label}</a>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <a data-lang-switch href={switchHref} class="nav-link text-xs uppercase tracking-[0.2em] text-onBackground transition-colors hover:text-primary">
+        {lang === 'es' ? 'EN' : 'ES'}
+      </a>
+      <a href={reserveHref} class="cta-button text-xs font-medium uppercase tracking-[0.16em] text-white">
+        {dict.nav.bookNow}
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  import { initHeaderBehavior } from '../../lib/browser/nav';
+  initHeaderBehavior();
+</script>

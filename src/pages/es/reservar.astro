@@ -1,0 +1,24 @@
+﻿---
+import PageLayout from '../../layouts/PageLayout.astro';
+import BookingForm from '../../components/forms/BookingForm.astro';
+import { getDictionary } from '../../i18n/utils';
+import { HOTEL_CONTACT } from '../../lib/site';
+
+const d = getDictionary('es');
+---
+
+<PageLayout lang="es" route="reserve">
+  <section class="bg-surface px-8 py-28" data-animate>
+    <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
+      <div class="rounded-2xl bg-surfaceContainerLow p-8">
+        <p class="mb-3 text-xs uppercase tracking-[0.24em] text-primary">{d.pages.reserve.eyebrow}</p>
+        <h1 class="mb-4 text-6xl font-headline">{d.pages.reserve.title}</h1>
+        <p class="text-secondary">{HOTEL_CONTACT.address}</p>
+        <p class="text-secondary">{HOTEL_CONTACT.phone}</p>
+        <p class="text-secondary">{HOTEL_CONTACT.email}</p>
+        <p class="mt-5 text-secondary">{HOTEL_CONTACT.hours}</p>
+      </div>
+      <BookingForm lang="es" variant="light" showIntro={false} />
+    </div>
+  </section>
+</PageLayout>

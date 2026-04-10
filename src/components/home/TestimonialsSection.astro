@@ -1,0 +1,42 @@
+﻿---
+import { getDictionary, type Lang } from '../../i18n/utils';
+
+interface Props { lang: Lang; }
+
+const { lang } = Astro.props;
+const quotes = getDictionary(lang).testimonials.quotes;
+---
+
+<section class="bg-surfaceContainerLow px-8 py-28" data-animate>
+  <div class="mx-auto max-w-4xl text-center" data-quote-carousel>
+    <p class="mb-8 text-7xl text-primary/30">“</p>
+
+    {quotes.map((quote, index) => (
+      <figure data-quote-slide hidden={index !== 0}>
+        <blockquote class="mb-6 text-3xl font-headline italic md:text-4xl">{quote.text}</blockquote>
+        <figcaption>
+          <p class="text-xs uppercase tracking-[0.25em] text-primary">{quote.author}</p>
+          <p class="mt-1 text-[10px] uppercase tracking-[0.22em] text-secondary">{quote.source}</p>
+        </figcaption>
+      </figure>
+    ))}
+
+    <div class="mt-10 flex justify-center gap-3">
+      {quotes.map((_, index) => (
+        <button
+          type="button"
+          aria-label={`${lang === 'es' ? 'Ir al testimonio' : 'Go to testimonial'} ${index + 1}`}
+          aria-pressed={index === 0 ? 'true' : 'false'}
+          data-quote-dot
+          data-active={index === 0 ? 'true' : 'false'}
+          class="h-2.5 w-2.5 rounded-full bg-outlineVariant transition-colors data-[active=true]:bg-primary"
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initQuoteCarousel } from '../../lib/browser/quote-carousel';
+  initQuoteCarousel();
+</script>

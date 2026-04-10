@@ -1,0 +1,24 @@
+﻿---
+import PageLayout from '../../layouts/PageLayout.astro';
+import HeroSection from '../../components/home/HeroSection.astro';
+import TrustStrip from '../../components/home/TrustStrip.astro';
+import RoomsShowcase from '../../components/home/RoomsShowcase.astro';
+import PhilosophySection from '../../components/home/PhilosophySection.astro';
+import ExperiencesSection from '../../components/home/ExperiencesSection.astro';
+import TestimonialsSection from '../../components/home/TestimonialsSection.astro';
+import BookingForm from '../../components/forms/BookingForm.astro';
+---
+
+<PageLayout lang="es" route="home">
+  <HeroSection lang="es" />
+  <TrustStrip />
+  <RoomsShowcase lang="es" />
+  <PhilosophySection lang="es" />
+  <ExperiencesSection lang="es" />
+  <TestimonialsSection lang="es" />
+  <section class="bg-onBackground px-8 py-28 text-white" data-animate>
+    <div class="mx-auto max-w-7xl">
+      <BookingForm lang="es" variant="dark" />
+    </div>
+  </section>
+</PageLayout>

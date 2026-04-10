@@ -1,0 +1,42 @@
+﻿---
+import { getDictionary, type Lang } from '../../i18n/utils';
+import { footerContent, HOTEL_CONTACT } from '../../lib/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const content = footerContent[lang];
+---
+
+<footer class="bg-surfaceContainer px-8 pb-10 pt-20" data-animate>
+  <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
+    <div>
+      <p class="mb-6 text-3xl font-headline italic text-primary">Maison Blanche</p>
+      <p class="text-sm text-secondary">{content.newsletter}</p>
+    </div>
+    <div>
+      <h2 class="mb-4 text-xs uppercase tracking-[0.2em] text-primary">{dict.footer.hotel}</h2>
+      <ul class="space-y-2 text-sm text-secondary">
+        {content.hotel.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+    <div>
+      <h2 class="mb-4 text-xs uppercase tracking-[0.2em] text-primary">{dict.footer.services}</h2>
+      <ul class="space-y-2 text-sm text-secondary">
+        {content.services.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+    <div>
+      <h2 class="mb-4 text-xs uppercase tracking-[0.2em] text-primary">{dict.footer.contact}</h2>
+      <address class="space-y-2 text-sm not-italic text-secondary">
+        <p>{HOTEL_CONTACT.address}</p>
+        <p><a class="hover:text-primary" href={`tel:${HOTEL_CONTACT.phone.replace(/\s+/g, '')}`}>{HOTEL_CONTACT.phone}</a></p>
+        <p><a class="hover:text-primary" href={`mailto:${HOTEL_CONTACT.email}`}>{HOTEL_CONTACT.email}</a></p>
+        <p>{HOTEL_CONTACT.hours}</p>
+      </address>
+    </div>
+  </div>
+</footer>

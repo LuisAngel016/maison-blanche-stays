@@ -1,0 +1,43 @@
+﻿:root {
+  color-scheme: light;
+}
+
+@theme {
+  --color-background: #faf9f7;
+  --color-onBackground: #1a1c1b;
+  --color-surface: #faf9f7;
+  --color-surfaceContainer: #efeeec;
+  --color-surfaceContainerLow: #f4f3f1;
+  --color-surfaceContainerLowest: #ffffff;
+  --color-surfaceContainerHigh: #e9e8e6;
+  --color-surfaceContainerHighest: #e3e2e0;
+  --color-primary: #715b3e;
+  --color-primaryContainer: #8b7355;
+  --color-secondary: #625e51;
+  --color-outlineVariant: #d1c4b9;
+
+  --font-headline: "EB Garamond", serif;
+  --font-body: "DM Sans Variable", "DM Sans", sans-serif;
+
+  --shadow-editorial: 0 2px 24px rgba(24, 22, 15, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #faf9f7;
+  color: #1a1c1b;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}

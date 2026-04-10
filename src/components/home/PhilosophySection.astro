@@ -1,0 +1,41 @@
+﻿---
+import { type Lang, useTranslations } from '../../i18n/utils';
+
+interface Props { lang: Lang; }
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const blocks = lang === 'es'
+  ? [
+      { id: '01', heading: "L'Art de Vivre", title: 'Un legado de quietud', text: 'Desde 1963, Maison Blanche entiende el lujo como tiempo, silencio y detalle.' },
+      { id: '02', heading: 'Gastronomía', title: 'Excelencia de terroir', text: 'La cocina honra el mar y la tierra volcánica de la costa con precisión contemporánea.' },
+      { id: '03', heading: 'Wellness', title: 'Spa mediterráneo holístico', text: 'Rituales de sal marina, cítricos y aceites para restaurar cuerpo y mente.' },
+    ]
+  : [
+      { id: '01', heading: "L'Art de Vivre", title: 'A legacy of stillness', text: 'Since 1963, Maison Blanche has embraced luxury as time, silence and detail.' },
+      { id: '02', heading: 'Gastronomy', title: 'Terroir-driven excellence', text: 'Our cuisine celebrates sea and volcanic soil through contemporary precision.' },
+      { id: '03', heading: 'Wellness', title: 'Holistic Mediterranean spa', text: 'Sea salt, citrus and oil rituals to restore body and mind.' },
+    ];
+---
+
+<section class="bg-surfaceContainerLowest px-8 py-28" data-animate>
+  <div class="mx-auto grid max-w-7xl gap-16 md:grid-cols-2">
+    <div>
+      <h2 class="text-6xl font-headline leading-none md:text-7xl">
+        {t('philosophy.title1')}<br />
+        <span class="italic">{t('philosophy.title2')}</span><br />
+        {t('philosophy.title3')}
+      </h2>
+    </div>
+    <div class="space-y-12" data-stagger>
+      {blocks.map((block) => (
+        <article>
+          <p class="mb-3 font-headline text-sm text-primary">{block.id} / {block.heading}</p>
+          <h3 class="mb-2 text-3xl font-headline">{block.title}</h3>
+          <p class="text-secondary">{block.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
