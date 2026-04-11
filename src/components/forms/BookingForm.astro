@@ -1,5 +1,6 @@
 ﻿---
 import { getDictionary, type Lang } from '../../i18n/utils';
+import { rooms } from '../../data/rooms';
 import DateField from './DateField.astro';
 import SelectField from './SelectField.astro';
 import TextareaField from './TextareaField.astro';
@@ -32,6 +33,10 @@ const submitClass = variant === 'light'
 const successClass = variant === 'light'
   ? 'rounded-xl bg-emerald-100 text-emerald-700'
   : 'rounded-xl bg-emerald-300/10 text-emerald-200';
+const roomOptions = rooms.map((room) => ({
+  value: room.slug,
+  label: lang === 'es' ? room.nameEs : room.nameEn,
+}));
 ---
 
 <section class:list={[showIntro ? 'grid gap-16 lg:grid-cols-[0.9fr_1fr]' : '', showIntro && variant === 'dark' ? 'items-start' : '', !showIntro ? '' : '']}>
@@ -65,11 +70,7 @@ const successClass = variant === 'light'
           id={`${lang}-room-${variant}`}
           label={dict.booking.roomType}
           theme={theme}
-          options={[
-            { value: 'tramonto', label: 'Suite Tramonto' },
-            { value: 'azure', label: 'Deluxe Azure' },
-            { value: 'bianca', label: 'Villa Bianca' },
-          ]}
+          options={roomOptions}
         />
       </div>
       <TextareaField id={`${lang}-requests-${variant}`} label={dict.booking.requests} placeholder={dict.booking.placeholder} theme={theme} rows={showIntro ? 3 : 4} />

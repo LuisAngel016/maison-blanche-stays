@@ -40,7 +40,7 @@
     "all": "All",
     "suites": "Suites",
     "rooms": "Rooms",
-    "villa": "Villa",
+    "villa": "Villas",
     "perNight": "/ night",
     "viewSuite": "View suite"
   },
@@ -95,7 +95,7 @@
     "suites": {
       "eyebrow": "Accommodations",
       "title": "Suites & Rooms",
-      "subtitle": "A curated collection of sea-facing suites, intimate rooms and a private villa."
+      "subtitle": "A curated collection of sea-facing suites, intimate rooms and private villas."
     },
     "restaurant": {
       "eyebrow": "Il Ristorante",

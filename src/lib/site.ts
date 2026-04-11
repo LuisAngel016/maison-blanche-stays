@@ -38,11 +38,11 @@ export const pageSeo: Record<RouteKey, Record<Lang, { title: string; description
   suites: {
     es: {
       title: 'Suites y habitaciones | Maison Blanche',
-      description: 'Una colección curada de suites al mar, habitaciones íntimas y una villa privada.',
+      description: 'Una colección curada de suites al mar, habitaciones íntimas y villas privadas.',
     },
     en: {
       title: 'Suites & rooms | Maison Blanche',
-      description: 'A curated collection of sea-facing suites, intimate rooms and a private villa.',
+      description: 'A curated collection of sea-facing suites, intimate rooms and private villas.',
     },
   },
   restaurant: {
