@@ -1,28 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#C9A227"/>
-      <stop offset="50%" stop-color="#E8D48A"/>
-      <stop offset="100%" stop-color="#C9A227"/>
-    </linearGradient>
-  </defs>
+  <!-- Minimalist editorial monogram - no background, transparent -->
   
-  <!-- Background circle -->
-  <circle cx="50" cy="50" r="48" fill="#1A1A1A" stroke="url(#gold)" stroke-width="2"/>
-  
-  <!-- Letter M stylized -->
-  <path d="M25 70 L25 35 L38 35 L50 55 L62 35 L75 35 L75 70" 
+  <!-- Letter M - primary taupe, thin stroke like the design system -->
+  <path d="M20 80 L20 30 Q20 25 25 25 L38 25 L50 50 L62 25 L75 25 Q80 25 80 30 L80 80" 
         fill="none" 
-        stroke="url(#gold)" 
-        stroke-width="5" 
+        stroke="#715b3e" 
+        stroke-width="4" 
         stroke-linecap="round" 
         stroke-linejoin="round"/>
   
-  <!-- Decorative crown/home accent on top -->
-  <path d="M42 30 L45 25 L50 28 L55 25 L58 30" 
+  <!-- Subtle crown accent - smaller, secondary color -->
+  <path d="M40 22 L45 15 L50 20 L55 15 L60 22" 
         fill="none" 
-        stroke="url(#gold)" 
-        stroke-width="3" 
+        stroke="#625e51" 
+        stroke-width="2" 
         stroke-linecap="round" 
         stroke-linejoin="round"/>
 </svg>
