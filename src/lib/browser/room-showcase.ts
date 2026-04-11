@@ -47,7 +47,10 @@ export function initRoomShowcases(root: ParentNode = document) {
     const openModal = (card: HTMLElement) => {
       if (!modal || !modalImage || !modalCategory || !modalName || !modalPrice || !modalDescription || !modalFeatures) return;
 
-      modalImage.src = card.dataset.roomImage ?? '';
+      const roomImage = card.dataset.roomImage ?? '';
+      modalImage.src = roomImage;
+      modalImage.srcset = roomImage;
+      modalImage.sizes = '100vw';
       modalImage.alt = card.dataset.roomName ?? '';
       modalCategory.textContent = card.dataset.roomCategoryLabel ?? '';
       modalName.textContent = card.dataset.roomName ?? '';
