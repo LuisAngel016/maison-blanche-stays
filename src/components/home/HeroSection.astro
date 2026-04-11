@@ -9,7 +9,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section class="min-h-[100svh] bg-background pt-[72px]" data-animate>
+<section class="min-h-[100svh] bg-background pt-[72px] pb-4 sm:pb-0" data-animate>
   <div class="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-2">
     <div class="flex items-center px-4 py-12 sm:px-6 sm:py-16 md:px-14 md:py-20">
       <div>
@@ -39,13 +39,13 @@ const t = useTranslations(lang);
         </div>
       </div>
     </div>
-    <div class="relative min-h-[420px] overflow-hidden rounded-none bg-surfaceContainer sm:min-h-[520px] sm:rounded-2xl md:min-h-[560px]">
+    <div class="relative mx-4 min-h-[420px] overflow-hidden rounded-2xl bg-surfaceContainer sm:mx-0 sm:min-h-[520px] md:min-h-[560px]">
       <SmartImage
         src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1400&q=85&fit=crop"
         alt={lang === 'es' ? 'Terraza principal del hotel Maison Blanche' : 'Maison Blanche main terrace'}
         width={1400}
         height={1600}
-        sizes="(min-width: 1024px) 50vw, 100vw"
+        sizes="(min-width: 1024px) 50vw, calc(100vw - 2rem)"
         loading="eager"
         fetchpriority="high"
         class="h-full w-full rounded-2xl object-cover"
