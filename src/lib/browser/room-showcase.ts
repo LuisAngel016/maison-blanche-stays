@@ -25,6 +25,10 @@ export function initRoomShowcases(root: ParentNode = document) {
     const modalFeatures = showcase.querySelector<HTMLElement>('[data-room-modal-features]');
     const modalClose = showcase.querySelector<HTMLButtonElement>('[data-room-modal-close]');
 
+    if (modal && modal.parentElement !== document.body) {
+      document.body.appendChild(modal);
+    }
+
     const applyFilter = (tab: string) => {
       cards.forEach((card) => {
         const visible = tab === 'all' || card.dataset.roomCategory === tab;
