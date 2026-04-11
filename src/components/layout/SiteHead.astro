@@ -45,7 +45,8 @@ const ldJson = {
 <link rel="alternate" hreflang={lang} href={canonicalUrl ?? pathname} />
 <link rel="alternate" hreflang={oppositeLang} href={alternateUrl ?? alternatePath} />
 {Astro.site && <link rel="alternate" hreflang="x-default" href={new URL('/es', Astro.site).toString()} />}
-<link rel="icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.svg" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={SITE_NAME} />

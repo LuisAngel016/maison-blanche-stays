@@ -9,37 +9,37 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section class="min-h-screen bg-background pt-[72px]" data-animate>
+<section class="min-h-[100svh] bg-background pt-[72px]" data-animate>
   <div class="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-2">
-    <div class="flex items-center px-8 py-20 md:px-14">
+    <div class="flex items-center px-4 py-12 sm:px-6 sm:py-16 md:px-14 md:py-20">
       <div>
-        <h1 class="mb-8 text-6xl font-headline leading-[0.95] text-onBackground md:text-8xl">
+        <h1 class="mb-6 text-4xl font-headline leading-[0.95] text-onBackground sm:mb-8 sm:text-5xl md:text-8xl">
           {t('hero.line1')}<br />
           <span class="font-normal italic">{t('hero.line2')}</span><br />
           {t('hero.line3')}
         </h1>
-        <p class="mb-10 max-w-md text-secondary">{t('hero.subtitle')}</p>
-        <div class="mb-14 flex flex-wrap gap-4">
+        <p class="mb-8 max-w-md text-sm text-secondary sm:mb-10 sm:text-base">{t('hero.subtitle')}</p>
+        <div class="mb-10 flex flex-wrap gap-3 sm:mb-14 sm:gap-4">
           <a href={getLocalizedPath(lang, 'suites')} class="cta-button px-8 py-3 text-sm text-white">{t('hero.ctaPrimary')}</a>
           <a href={getLocalizedPath(lang, 'gallery')} class="rounded-full border border-outlineVariant px-8 py-3 text-sm text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white">{t('hero.ctaSecondary')}</a>
         </div>
-        <div class="grid grid-cols-3 gap-6 text-center md:text-left">
+        <div class="grid grid-cols-3 gap-3 text-center sm:gap-6 md:text-left">
           <div>
-            <p class="text-2xl font-headline text-primary">18</p>
+            <p class="text-xl font-headline text-primary sm:text-2xl">18</p>
             <p class="text-[10px] uppercase tracking-[0.2em] text-secondary">{t('hero.statSuites')}</p>
           </div>
           <div>
-            <p class="text-2xl font-headline text-primary">★ 4.9</p>
+            <p class="text-xl font-headline text-primary sm:text-2xl">★ 4.9</p>
             <p class="text-[10px] uppercase tracking-[0.2em] text-secondary">{t('hero.statRating')}</p>
           </div>
           <div>
-            <p class="text-2xl font-headline text-primary">1963</p>
+            <p class="text-xl font-headline text-primary sm:text-2xl">1963</p>
             <p class="text-[10px] uppercase tracking-[0.2em] text-secondary">{t('hero.statEstablished')}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="relative min-h-[560px] overflow-hidden rounded-2xl bg-surfaceContainer">
+    <div class="relative min-h-[420px] overflow-hidden rounded-none bg-surfaceContainer sm:min-h-[520px] sm:rounded-2xl md:min-h-[560px]">
       <SmartImage
         src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1400&q=85&fit=crop"
         alt={lang === 'es' ? 'Terraza principal del hotel Maison Blanche' : 'Maison Blanche main terrace'}

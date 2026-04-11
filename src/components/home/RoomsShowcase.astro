@@ -16,12 +16,12 @@ const categories = [
 ] as const;
 ---
 
-<section class:list={['bg-surface px-8', compact ? 'py-20' : 'py-28']} data-animate data-room-showcase>
+<section class:list={['bg-surface px-4 sm:px-6 md:px-8', compact ? 'py-16 md:py-20' : 'py-16 md:py-28']} data-animate data-room-showcase>
   <div class="mx-auto max-w-7xl">
     {!compact && (
       <div class="mb-14 text-center">
         <p class="mb-4 text-xs uppercase tracking-[0.28em] text-primary">{t('rooms.eyebrow')}</p>
-        <h2 class="text-5xl font-headline text-onBackground md:text-6xl">{t('rooms.title')}</h2>
+        <h2 class="text-4xl font-headline text-onBackground sm:text-5xl md:text-6xl">{t('rooms.title')}</h2>
       </div>
     )}
 
@@ -40,7 +40,7 @@ const categories = [
       </div>
     )}
 
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3" data-stagger>
+    <div class="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3" data-stagger>
       {rooms.map((room) => {
         const roomName = lang === 'es' ? room.nameEs : room.nameEn;
         const roomDescription = lang === 'es' ? room.descEs : room.descEn;
@@ -60,8 +60,8 @@ const categories = [
             role="button"
             tabindex="0"
           >
-            <div class="h-72 w-full overflow-hidden rounded-t-2xl">
-              <SmartImage src={room.image} alt={roomName} width={1200} height={960} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" class="h-72 w-full rounded-t-2xl object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="h-60 w-full overflow-hidden rounded-t-2xl sm:h-72">
+              <SmartImage src={room.image} alt={roomName} width={1200} height={960} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" class="h-60 w-full rounded-t-2xl object-cover transition-transform duration-500 group-hover:scale-105 sm:h-72" />
             </div>
             <div class="p-6">
               <p class="mb-2 text-[10px] uppercase tracking-[0.2em] text-secondary">{categoryLabel}</p>

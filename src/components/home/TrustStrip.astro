@@ -9,11 +9,11 @@ const awards = [
 ];
 ---
 
-<section class="overflow-hidden bg-[#18160F] py-4" aria-label="Awards" data-animate>
-  <div class="marquee-track flex w-max items-center gap-6 px-6">
+<section class="overflow-hidden bg-[#18160F] py-3 sm:py-4" aria-label="Awards" data-animate>
+  <div class="marquee-track flex w-max items-center gap-4 px-4 sm:gap-6 sm:px-6">
     {[...awards, ...awards].map((award) => (
-      <div class="flex min-w-[280px] items-center gap-4 rounded-2xl bg-white/5 px-4 py-3 text-white/90">
-        <SmartImage src={award.img} alt={award.text} width={96} height={96} class="h-12 w-12 rounded-2xl object-cover" />
+      <div class="flex min-w-[240px] items-center gap-3 rounded-2xl bg-white/5 px-3 py-3 text-white/90 sm:min-w-[280px] sm:gap-4 sm:px-4">
+        <SmartImage src={award.img} alt={award.text} width={96} height={96} sizes="48px" class="h-10 w-10 rounded-2xl object-cover sm:h-12 sm:w-12" />
         <div>
           <p class="text-xs uppercase tracking-[0.18em]">{award.text}</p>
           <p class="text-[10px] uppercase tracking-[0.2em] text-white/70">{award.sub}</p>

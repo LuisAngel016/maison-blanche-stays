@@ -22,14 +22,58 @@ const {
   class: className = '',
   ...rest
 } = Astro.props;
+
+const UNSPLASH_HOST = 'images.unsplash.com';
+const RESPONSIVE_WIDTHS = [320, 480, 640, 768, 960, 1200, 1440, 1600, 1920];
+
+function isUnsplashImage(value: string) {
+  try {
+    return new URL(value).hostname.includes(UNSPLASH_HOST);
+  } catch {
+    return false;
+  }
+}
+
+function withUnsplashParams(value: string, targetWidth: number) {
+  const url = new URL(value);
+
+  url.searchParams.set('w', String(targetWidth));
+
+  if (!url.searchParams.has('fit')) {
+    url.searchParams.set('fit', 'crop');
+  }
+
+  if (!url.searchParams.has('q')) {
+    url.searchParams.set('q', '80');
+  }
+
+  const auto = url.searchParams.get('auto');
+  if (!auto) {
+    url.searchParams.set('auto', 'format');
+  } else if (!auto.includes('format')) {
+    url.searchParams.set('auto', `${auto},format`);
+  }
+
+  return url.toString();
+}
+
+const canOptimize = isUnsplashImage(src);
+const responsiveWidths = canOptimize
+  ? [...new Set([...RESPONSIVE_WIDTHS.filter((candidate) => candidate < width), width])]
+  : [];
+const responsiveSrc = canOptimize ? withUnsplashParams(src, width) : src;
+const responsiveSrcSet = responsiveWidths.length
+  ? responsiveWidths.map((candidate) => `${withUnsplashParams(src, candidate)} ${candidate}w`).join(', ')
+  : undefined;
 ---
 
 <img
-  src={src}
+  src={responsiveSrc}
   alt={alt}
   width={width}
   height={height}
   sizes={sizes}
+  srcset={responsiveSrcSet}
   loading={loading}
   decoding="async"
   fetchpriority={fetchpriority}

@@ -4,6 +4,7 @@ function reveal(element: HTMLElement, delay = 0) {
   element.style.transition = `opacity 560ms ease ${delay}ms, transform 560ms ease ${delay}ms`;
   element.style.opacity = '1';
   element.style.transform = 'translateY(0)';
+  element.style.willChange = 'auto';
 }
 
 function prepare(element: HTMLElement) {
@@ -14,10 +15,11 @@ function prepare(element: HTMLElement) {
 
 export function initScrollAnimations(root: ParentNode = document) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const compactViewport = window.matchMedia('(max-width: 767px)').matches;
   const singles = Array.from(root.querySelectorAll<HTMLElement>('[data-animate]'));
   const groups = Array.from(root.querySelectorAll<HTMLElement>('[data-stagger]'));
 
-  if (reduceMotion) {
+  if (reduceMotion || compactViewport) {
     singles.forEach((element) => reveal(element));
     groups.forEach((group) => Array.from(group.children).forEach((child) => reveal(child as HTMLElement)));
     return;

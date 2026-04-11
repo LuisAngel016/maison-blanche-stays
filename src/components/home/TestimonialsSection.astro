@@ -7,13 +7,13 @@ const { lang } = Astro.props;
 const quotes = getDictionary(lang).testimonials.quotes;
 ---
 
-<section class="bg-surfaceContainerLow px-8 py-28" data-animate>
+<section class="bg-surfaceContainerLow px-4 py-16 sm:px-6 md:px-8 md:py-28" data-animate>
   <div class="mx-auto max-w-4xl text-center" data-quote-carousel>
-    <p class="mb-8 text-7xl text-primary/30">“</p>
+    <p class="mb-8 text-5xl text-primary/30 sm:text-7xl">“</p>
 
     {quotes.map((quote, index) => (
       <figure data-quote-slide hidden={index !== 0}>
-        <blockquote class="mb-6 text-3xl font-headline italic md:text-4xl">{quote.text}</blockquote>
+        <blockquote class="mb-6 text-2xl font-headline italic sm:text-3xl md:text-4xl">{quote.text}</blockquote>
         <figcaption>
           <p class="text-xs uppercase tracking-[0.25em] text-primary">{quote.author}</p>
           <p class="mt-1 text-[10px] uppercase tracking-[0.22em] text-secondary">{quote.source}</p>
