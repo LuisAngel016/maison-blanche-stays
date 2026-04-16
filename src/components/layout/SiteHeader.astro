@@ -14,9 +14,21 @@ const dict = getDictionary(lang);
 const links = getNavigationLinks(lang);
 ---
 
-<header class="site-header fixed inset-x-0 top-0 z-50" data-site-header data-scrolled="false">
+<header class="site-header fixed inset-x-0 top-0 z-50" data-site-header data-scrolled="false" data-menu-open="false">
   <nav class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:gap-6 sm:px-6 sm:py-5 md:px-12 md:py-6" aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
     <div class="flex items-center gap-4 sm:gap-8">
+      <button
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-outlineVariant/70 bg-white/80 text-onBackground transition-colors hover:border-primary hover:text-primary md:hidden"
+        data-mobile-menu-toggle
+        aria-expanded="false"
+        aria-controls={`mobile-menu-${lang}`}
+        aria-label={lang === 'es' ? 'Abrir menú' : 'Open menu'}
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5">
+          <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"></path>
+        </svg>
+      </button>
       <a href={homeHref} class="nav-link text-xl italic font-headline text-onBackground sm:text-2xl">Maison Blanche</a>
       <div class="hidden items-center gap-7 md:flex">
         {links.map((link) => (
@@ -34,6 +46,34 @@ const links = getNavigationLinks(lang);
       </a>
     </div>
   </nav>
+
+  <div hidden data-mobile-menu-backdrop class="fixed inset-0 top-[72px] bg-black/20 backdrop-blur-[2px] md:hidden"></div>
+
+  <div
+    id={`mobile-menu-${lang}`}
+    hidden
+    data-mobile-menu
+    class="absolute inset-x-4 top-full mt-2 rounded-3xl border border-[#E8E5E0] bg-[rgba(249,248,246,0.98)] p-4 shadow-[0_20px_48px_rgba(24,22,15,0.14)] backdrop-blur-xl md:hidden"
+  >
+    <div class="flex flex-col gap-2">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          data-mobile-menu-link
+          class="rounded-2xl px-4 py-3 text-sm tracking-wide text-onBackground transition-colors hover:bg-surfaceContainer hover:text-primary"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={reserveHref}
+        data-mobile-menu-link
+        class="cta-button mt-2 justify-center px-4 py-3 text-xs font-medium uppercase tracking-[0.16em] text-white"
+      >
+        {dict.nav.bookNow}
+      </a>
+    </div>
+  </div>
 </header>
 
 <script>

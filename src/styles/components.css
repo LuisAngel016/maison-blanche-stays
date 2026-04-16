@@ -25,6 +25,12 @@
   border-bottom: 1px solid #e8e5e0;
 }
 
+.site-header[data-menu-open='true'] {
+  background: rgba(249, 248, 246, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e8e5e0;
+}
+
 .nav-link {
   text-shadow: 0 1px 3px rgba(249, 248, 246, 0.35);
 }
