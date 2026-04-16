@@ -35,10 +35,10 @@ export function getNavigationLinks(lang: Lang) {
   const dict = getDictionary(lang);
 
   return [
-    { href: getLocalizedPath(lang, 'suites'), label: dict.nav.suites },
-    { href: getLocalizedPath(lang, 'restaurant'), label: dict.nav.restaurant },
-    { href: getLocalizedPath(lang, 'spa'), label: dict.nav.spa },
-    { href: getLocalizedPath(lang, 'gallery'), label: dict.nav.gallery },
-    { href: getLocalizedPath(lang, 'reserve'), label: dict.nav.reserve },
+    { key: 'suites' as const, href: getLocalizedPath(lang, 'suites'), label: dict.nav.suites },
+    { key: 'restaurant' as const, href: getLocalizedPath(lang, 'restaurant'), label: dict.nav.restaurant },
+    { key: 'spa' as const, href: getLocalizedPath(lang, 'spa'), label: dict.nav.spa },
+    { key: 'gallery' as const, href: getLocalizedPath(lang, 'gallery'), label: dict.nav.gallery },
+    { key: 'reserve' as const, href: getLocalizedPath(lang, 'reserve'), label: dict.nav.reserve },
   ];
 }

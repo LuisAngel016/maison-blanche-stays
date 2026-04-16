@@ -28,7 +28,7 @@ const seo = pageSeo[route][lang];
   alternatePath={alternatePath}
   image={image}
 >
-  <SiteHeader lang={lang} homeHref={getLocalizedPath(lang, 'home')} reserveHref={getLocalizedPath(lang, 'reserve')} switchHref={alternatePath} />
+  <SiteHeader lang={lang} currentRoute={route} homeHref={getLocalizedPath(lang, 'home')} reserveHref={getLocalizedPath(lang, 'reserve')} switchHref={alternatePath} />
 
   <main class="pt-[72px]">
     <slot />

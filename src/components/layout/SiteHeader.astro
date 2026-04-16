@@ -1,15 +1,16 @@
 ﻿---
 import { getDictionary, type Lang } from '../../i18n/utils';
-import { getNavigationLinks } from '../../lib/routes';
+import { getNavigationLinks, type RouteKey } from '../../lib/routes';
 
 interface Props {
   lang: Lang;
+  currentRoute: RouteKey;
   homeHref: string;
   reserveHref: string;
   switchHref: string;
 }
 
-const { lang, homeHref, reserveHref, switchHref } = Astro.props;
+const { lang, currentRoute, homeHref, reserveHref, switchHref } = Astro.props;
 const dict = getDictionary(lang);
 const links = getNavigationLinks(lang);
 ---
@@ -32,7 +33,16 @@ const links = getNavigationLinks(lang);
       <a href={homeHref} class="nav-link text-xl italic font-headline text-onBackground sm:text-2xl">Maison Blanche</a>
       <div class="hidden items-center gap-7 md:flex">
         {links.map((link) => (
-          <a href={link.href} class="nav-link text-sm tracking-wide text-onBackground transition-colors hover:text-primary">{link.label}</a>
+          <a
+            href={link.href}
+            aria-current={currentRoute === link.key ? 'page' : undefined}
+            class:list={[
+              'nav-link text-sm tracking-wide transition-colors',
+              currentRoute === link.key ? 'text-primary' : 'text-onBackground hover:text-primary',
+            ]}
+          >
+            {link.label}
+          </a>
         ))}
       </div>
     </div>
@@ -60,7 +70,13 @@ const links = getNavigationLinks(lang);
         <a
           href={link.href}
           data-mobile-menu-link
-          class="rounded-2xl px-4 py-3 text-sm tracking-wide text-onBackground transition-colors hover:bg-surfaceContainer hover:text-primary"
+          aria-current={currentRoute === link.key ? 'page' : undefined}
+          class:list={[
+            'rounded-2xl px-4 py-3 text-sm tracking-wide transition-colors',
+            currentRoute === link.key
+              ? 'bg-surfaceContainer text-primary'
+              : 'text-onBackground hover:bg-surfaceContainer hover:text-primary',
+          ]}
         >
           {link.label}
         </a>
