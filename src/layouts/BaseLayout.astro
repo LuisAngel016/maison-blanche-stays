@@ -22,5 +22,15 @@ const { lang, title, description, pathname, alternatePath, image } = Astro.props
   </head>
   <body class="bg-background font-body text-onBackground antialiased">
     <slot />
+
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((error) => {
+            console.warn('Service worker registration failed', error);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

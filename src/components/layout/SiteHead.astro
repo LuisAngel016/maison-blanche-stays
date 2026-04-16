@@ -45,6 +45,8 @@ const ldJson = {
 <link rel="alternate" hreflang={lang} href={canonicalUrl ?? pathname} />
 <link rel="alternate" hreflang={oppositeLang} href={alternateUrl ?? alternatePath} />
 {Astro.site && <link rel="alternate" hreflang="x-default" href={new URL('/es', Astro.site).toString()} />}
+<link rel="dns-prefetch" href="https://images.unsplash.com" />
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon.svg" />
 
