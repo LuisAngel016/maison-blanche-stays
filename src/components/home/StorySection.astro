@@ -1,0 +1,61 @@
+---
+import { getDictionary, type Lang } from '../../i18n/utils';
+import SmartImage from '../media/SmartImage.astro';
+
+interface Props { lang: Lang; }
+
+const { lang } = Astro.props;
+const story = getDictionary(lang).story;
+---
+
+<section
+  id={lang === 'es' ? 'historia' : 'story'}
+  class="scroll-mt-[88px] bg-surfaceContainerLow px-4 py-16 sm:px-6 md:px-8 md:py-28"
+  data-animate
+>
+  <div class="mx-auto grid max-w-7xl gap-14 md:grid-cols-12 md:gap-16">
+    <div class="md:col-span-5">
+      <p class="mb-4 text-xs uppercase tracking-[0.28em] text-primary">{story.eyebrow}</p>
+      <h2 class="text-4xl font-headline leading-none sm:text-5xl md:text-6xl">
+        {story.title1}<br />
+        <span class="italic">{story.title2}</span><br />
+        {story.title3}
+      </h2>
+      <p class="mt-6 max-w-md text-secondary">{story.lead}</p>
+
+      <div class="mt-8 flex items-baseline gap-4">
+        <span class="text-5xl font-headline text-primary">{story.statValue}</span>
+        <span class="max-w-[11rem] text-[10px] uppercase leading-relaxed tracking-[0.2em] text-secondary">{story.statLabel}</span>
+      </div>
+
+      <figure class="relative mt-12 overflow-hidden rounded-3xl">
+        <div class="card-media aspect-[4/5] sm:aspect-[5/4] md:aspect-[4/5]">
+          <SmartImage
+            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&q=85&fit=crop"
+            alt={lang === 'es' ? 'Callejón blanco con vistas al mar en la costa amalfitana' : 'A whitewashed alley above the sea on the Amalfi Coast'}
+            width={1200}
+            height={1500}
+            sizes="(min-width: 768px) 40vw, calc(100vw - 2rem)"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <figcaption class="absolute inset-x-4 bottom-4 rounded-2xl bg-[rgba(250,249,247,0.92)] p-6 backdrop-blur-md sm:inset-x-5 sm:bottom-5">
+          <p class="font-headline text-xl italic leading-snug">“{story.quote}”</p>
+          <p class="mt-4 font-headline text-lg italic text-primary">{story.quoteAuthor}</p>
+          <p class="mt-1 text-[10px] uppercase tracking-[0.2em] text-secondary">{story.quoteRole}</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <ol class="md:col-span-7 md:pt-4" data-stagger>
+      {story.milestones.map((milestone) => (
+        <li class="story-milestone relative pb-12 pl-8 last:pb-0 md:pl-10">
+          <span class="story-dot" aria-hidden="true"></span>
+          <p class="story-year font-headline text-4xl italic text-outlineVariant sm:text-5xl">{milestone.year}</p>
+          <h3 class="mt-2 text-2xl font-headline">{milestone.title}</h3>
+          <p class="mt-2 max-w-xl text-secondary">{milestone.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

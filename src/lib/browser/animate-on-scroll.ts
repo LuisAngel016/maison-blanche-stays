@@ -1,10 +1,17 @@
 ﻿const INITIAL_OFFSET = 24;
+const REVEAL_DURATION = 560;
 
 function reveal(element: HTMLElement, delay = 0) {
-  element.style.transition = `opacity 560ms ease ${delay}ms, transform 560ms ease ${delay}ms`;
+  element.style.transition = `opacity ${REVEAL_DURATION}ms ease ${delay}ms, transform ${REVEAL_DURATION}ms ease ${delay}ms`;
   element.style.opacity = '1';
   element.style.transform = 'translateY(0)';
   element.style.willChange = 'auto';
+
+  window.setTimeout(() => {
+    element.style.removeProperty('transition');
+    element.style.removeProperty('transform');
+    element.style.removeProperty('will-change');
+  }, REVEAL_DURATION + delay + 50);
 }
 
 function prepare(element: HTMLElement) {

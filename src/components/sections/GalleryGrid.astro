@@ -19,13 +19,13 @@ const { lang, title, eyebrow } = Astro.props;
       {galleryImages.map((image, index) => (
         <button
           type="button"
-          class="aspect-[4/3] overflow-hidden rounded-2xl"
+          class="card-media aspect-[4/3] rounded-2xl"
           data-lightbox-trigger
           data-lightbox-src={image.src}
           data-lightbox-alt={image.alt[lang]}
           aria-label={`${lang === 'es' ? 'Abrir imagen' : 'Open image'} ${index + 1}`}
         >
-          <SmartImage src={image.src} alt={image.alt[lang]} width={1200} height={900} class="h-full w-full rounded-2xl object-cover transition-transform duration-500 hover:scale-[1.02]" />
+          <SmartImage src={image.src} alt={image.alt[lang]} width={1200} height={900} class="h-full w-full object-cover" />
         </button>
       ))}
     </div>

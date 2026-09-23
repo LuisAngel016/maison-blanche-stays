@@ -49,10 +49,76 @@
     "title2": "está en los",
     "title3": "detalles"
   },
+  "story": {
+    "eyebrow": "Nuestra historia",
+    "title1": "Una casa",
+    "title2": "frente al mar",
+    "title3": "desde 1963",
+    "lead": "Todo empezó con una casa de pescadores, una familia y la convicción de que la hospitalidad era su verdadera vocación.",
+    "statValue": "60+",
+    "statLabel": "años de hospitalidad ininterrumpida",
+    "quote": "No construimos un hotel. Abrimos las puertas de nuestra casa, y nunca dejamos de hacerlo.",
+    "quoteAuthor": "Elena Bianchi",
+    "quoteRole": "Fundadora, 1963",
+    "milestones": [
+      {
+        "year": "1963",
+        "title": "La casa de verano",
+        "text": "Elena y Vittorio Bianchi compran una casa de pescadores en Positano para pasar los veranos en familia, entre limoneros y sal marina."
+      },
+      {
+        "year": "1978",
+        "title": "Las primeras mesas",
+        "text": "Las cenas para amigos se vuelven legendarias y la casa abre sus primeras seis habitaciones frente al mar."
+      },
+      {
+        "year": "1994",
+        "title": "La segunda generación",
+        "text": "Sus hijos transforman la casa en hotel boutique, preservando cada viga, cada azulejo y cada rincón original."
+      },
+      {
+        "year": "Hoy",
+        "title": "La tercera generación",
+        "text": "Los nietos de Elena continúan el mismo ritual: recibir a cada huésped como si llegara a casa."
+      }
+    ]
+  },
   "experiences": {
     "eyebrow": "Momentos curados",
     "title": "Experiencias del hotel",
     "viewAll": "Ver galería completa"
+  },
+  "detail": {
+    "reserveHeading": "¿Listo para vivirlo?",
+    "reserveNote": "Nuestro concierge te responde en menos de 24 horas."
+  },
+  "roomDetail": {
+    "back": "Volver a suites",
+    "about": "La suite",
+    "amenities": "Comodidades",
+    "gallery": "La suite en imágenes",
+    "reserve": "Reservar esta suite",
+    "other": "Otras suites",
+    "viewAll": "Ver todas las suites"
+  },
+  "restaurantDetail": {
+    "back": "Volver a Il Ristorante",
+    "story": "Su cocina",
+    "philosophy": "Filosofía de producto",
+    "menuTitle": "El menú, paso a paso",
+    "priceNote": "por persona",
+    "reserve": "Reservar mesa",
+    "other": "Más de Il Ristorante",
+    "menuLink": "Ver el menú degustación",
+    "chefLink": "Conocer al chef"
+  },
+  "spaDetail": {
+    "back": "Volver al spa",
+    "benefits": "Beneficios",
+    "includes": "Incluye",
+    "view": "Ver tratamiento",
+    "reserve": "Reservar tratamiento",
+    "other": "Otros tratamientos"
   },
   "testimonials": {
     "quotes": [

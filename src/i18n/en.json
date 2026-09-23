@@ -49,10 +49,76 @@
     "title2": "lives in",
     "title3": "the details"
   },
+  "story": {
+    "eyebrow": "Our story",
+    "title1": "A house",
+    "title2": "above the sea",
+    "title3": "since 1963",
+    "lead": "It all began with a fisherman's house, a family, and the quiet conviction that hospitality was their true calling.",
+    "statValue": "60+",
+    "statLabel": "years of uninterrupted hospitality",
+    "quote": "We never built a hotel. We opened the doors of our home, and never stopped.",
+    "quoteAuthor": "Elena Bianchi",
+    "quoteRole": "Founder, 1963",
+    "milestones": [
+      {
+        "year": "1963",
+        "title": "The summer house",
+        "text": "Elena and Vittorio Bianchi buy a fisherman's house in Positano for their family summers, among lemon trees and sea salt."
+      },
+      {
+        "year": "1978",
+        "title": "The first tables",
+        "text": "Dinners for friends become legendary, and the house opens its first six sea-facing rooms."
+      },
+      {
+        "year": "1994",
+        "title": "The second generation",
+        "text": "Their children turn the house into a boutique hotel, preserving every beam, tile and original corner."
+      },
+      {
+        "year": "Today",
+        "title": "The third generation",
+        "text": "Elena's grandchildren keep the same ritual: welcoming every guest as if they were arriving home."
+      }
+    ]
+  },
   "experiences": {
     "eyebrow": "Curated moments",
     "title": "Hotel experiences",
     "viewAll": "View full gallery"
+  },
+  "detail": {
+    "reserveHeading": "Ready to experience it?",
+    "reserveNote": "Our concierge will reply within 24 hours."
+  },
+  "roomDetail": {
+    "back": "Back to suites",
+    "about": "The suite",
+    "amenities": "Amenities",
+    "gallery": "The suite in pictures",
+    "reserve": "Reserve this suite",
+    "other": "Other suites",
+    "viewAll": "View all suites"
+  },
+  "restaurantDetail": {
+    "back": "Back to Il Ristorante",
+    "story": "His kitchen",
+    "philosophy": "Produce philosophy",
+    "menuTitle": "The menu, course by course",
+    "priceNote": "per person",
+    "reserve": "Reserve a table",
+    "other": "More from Il Ristorante",
+    "menuLink": "View the tasting menu",
+    "chefLink": "Meet the chef"
+  },
+  "spaDetail": {
+    "back": "Back to the spa",
+    "benefits": "Benefits",
+    "includes": "Includes",
+    "view": "View treatment",
+    "reserve": "Book this treatment",
+    "other": "Other treatments"
   },
   "testimonials": {
     "quotes": [

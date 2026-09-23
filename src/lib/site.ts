@@ -11,15 +11,23 @@ export const HOTEL_CONTACT = {
   hours: 'Concierge: 24/7 · Restaurant: 12:30–23:00 · Spa: 09:00–20:00',
 };
 
-export const footerContent: Record<Lang, { newsletter: string; hotel: string[]; services: string[] }> = {
+export const footerContent: Record<Lang, { newsletter: string; hotel: { label: string; anchor?: string }[]; services: string[] }> = {
   es: {
     newsletter: 'Sumate a nuestra carta curada con novedades de temporada y acceso anticipado.',
-    hotel: ['Nuestra historia', 'Sustentabilidad', 'Carreras'],
+    hotel: [
+      { label: 'Nuestra historia', anchor: '#historia' },
+      { label: 'Sustentabilidad' },
+      { label: 'Carreras' },
+    ],
     services: ['Concierge', 'Transfers privados', 'Planificación de eventos'],
   },
   en: {
     newsletter: 'Join our curated letter for seasonal updates and exclusive early access.',
-    hotel: ['Our history', 'Sustainability', 'Careers'],
+    hotel: [
+      { label: 'Our history', anchor: '#story' },
+      { label: 'Sustainability' },
+      { label: 'Careers' },
+    ],
     services: ['Concierge', 'Private transfers', 'Event planning'],
   },
 };

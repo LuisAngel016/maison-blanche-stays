@@ -20,24 +20,24 @@ const dict = getDictionary(lang);
     </div>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-12" data-stagger>
-      <article class="relative overflow-hidden rounded-3xl md:col-span-8">
-        <SmartImage src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=85&fit=crop" alt={lang === 'es' ? 'Excursión privada en yate' : 'Private yacht excursion'} width={1600} height={960} sizes="(min-width: 768px) 66vw, 100vw" class="h-[300px] w-full rounded-2xl object-cover sm:h-[360px] md:h-[420px]" />
+      <article class="card-media rounded-3xl md:col-span-8">
+        <SmartImage src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=85&fit=crop" alt={lang === 'es' ? 'Excursión privada en yate' : 'Private yacht excursion'} width={1600} height={960} sizes="(min-width: 768px) 66vw, 100vw" class="h-[300px] w-full object-cover sm:h-[360px] md:h-[420px]" />
       </article>
       <div class="space-y-6 md:col-span-4">
-        <article class="rounded-3xl bg-surfaceContainerLow p-8">
+        <article class="card-tonal rounded-3xl bg-surfaceContainerLow p-8">
           <h3 class="mb-2 text-2xl font-headline">{lang === 'es' ? 'Cata de vinos' : 'Wine tasting'}</h3>
           <p class="text-sm text-secondary">{lang === 'es' ? 'Recorrido por nuestra cava con sommelier.' : 'Explore our cellar with our sommelier.'}</p>
         </article>
-        <article class="rounded-3xl bg-surfaceContainerLow p-8">
+        <article class="card-tonal rounded-3xl bg-surfaceContainerLow p-8">
           <h3 class="mb-2 text-2xl font-headline">{lang === 'es' ? 'Yoga al amanecer' : 'Morning yoga'}</h3>
           <p class="text-sm text-secondary">{lang === 'es' ? 'Meditación guiada frente al mar.' : 'Guided meditation above the coast.'}</p>
         </article>
       </div>
-      <article class="overflow-hidden rounded-3xl md:col-span-6">
-        <SmartImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=85&fit=crop" alt={lang === 'es' ? 'Masterclass gastronómica' : 'Gastronomy masterclass'} width={1200} height={720} class="h-72 w-full rounded-2xl object-cover" />
+      <article class="card-media rounded-3xl md:col-span-6">
+        <SmartImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=85&fit=crop" alt={lang === 'es' ? 'Masterclass gastronómica' : 'Gastronomy masterclass'} width={1200} height={720} class="h-72 w-full object-cover" />
       </article>
-      <article class="overflow-hidden rounded-3xl md:col-span-6">
-        <SmartImage src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=85&fit=crop" alt={lang === 'es' ? 'Vista de la piscina' : 'Pool view'} width={1200} height={720} class="h-72 w-full rounded-2xl object-cover" />
+      <article class="card-media rounded-3xl md:col-span-6">
+        <SmartImage src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=85&fit=crop" alt={lang === 'es' ? 'Vista de la piscina' : 'Pool view'} width={1200} height={720} class="h-72 w-full object-cover" />
       </article>
     </div>
   </div>

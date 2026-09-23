@@ -13,6 +13,12 @@
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 4px;
+  transition: color 240ms ease, text-underline-offset 240ms ease;
+}
+
+.editorial-link:hover {
+  color: #5a4830;
+  text-underline-offset: 8px;
 }
 
 .site-header {
@@ -42,6 +48,13 @@
   display: inline-flex;
   justify-content: center;
   padding: 0.5rem 0.9rem;
+  transition: transform 240ms ease, box-shadow 240ms ease, filter 240ms ease;
+}
+
+.cta-button:hover {
+  box-shadow: 0 10px 24px rgba(113, 91, 62, 0.28);
+  filter: brightness(1.06);
+  transform: translateY(-1px);
 }
 
 .field-stack {
@@ -95,4 +108,126 @@
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+.card-editorial {
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-editorial:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(24, 22, 15, 0.1);
+}
+
+.card-tonal {
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), background-color 520ms ease;
+}
+
+.card-tonal:hover {
+  background-color: #e3e2e0;
+  transform: translateY(-4px);
+}
+
+.card-media {
+  overflow: hidden;
+  position: relative;
+}
+
+.card-media img {
+  transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-media::after {
+  background: linear-gradient(to top, rgba(24, 22, 15, 0.34), rgba(24, 22, 15, 0) 58%);
+  content: '';
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 520ms ease;
+}
+
+.card-editorial:hover .card-media img,
+.card-media:hover img {
+  transform: scale(1.05);
+}
+
+.card-editorial:hover .card-media::after,
+.card-media:hover::after {
+  opacity: 1;
+}
+
+.card-arrow {
+  display: inline-block;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-editorial:hover .card-arrow,
+.card-tonal:hover .card-arrow,
+.editorial-link:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+.story-milestone {
+  border-left: 1px solid rgba(209, 196, 185, 0.55);
+  transition: border-color 520ms ease;
+}
+
+.story-milestone:hover {
+  border-color: #715b3e;
+}
+
+.story-dot {
+  background: #d1c4b9;
+  border-radius: 999px;
+  height: 9px;
+  left: -5px;
+  position: absolute;
+  top: 1.55rem;
+  transition: background-color 520ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  width: 9px;
+}
+
+.story-milestone:hover .story-dot {
+  background: #715b3e;
+  transform: scale(1.45);
+}
+
+.story-year {
+  transition: color 520ms ease, transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.story-milestone:hover .story-year {
+  color: #715b3e;
+  transform: translateX(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-editorial,
+  .card-tonal,
+  .card-media img,
+  .card-media::after,
+  .card-arrow,
+  .cta-button,
+  .story-milestone,
+  .story-dot,
+  .story-year {
+    transition: none;
+  }
+
+  .card-editorial:hover,
+  .card-tonal:hover,
+  .cta-button:hover {
+    transform: none;
+  }
+
+  .card-editorial:hover .card-media img,
+  .card-media:hover img,
+  .card-editorial:hover .card-arrow,
+  .card-tonal:hover .card-arrow,
+  .editorial-link:hover .card-arrow,
+  .story-milestone:hover .story-dot,
+  .story-milestone:hover .story-year {
+    transform: none;
+  }
 }

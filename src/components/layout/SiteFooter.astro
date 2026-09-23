@@ -1,5 +1,6 @@
 ﻿---
 import { getDictionary, type Lang } from '../../i18n/utils';
+import { getLocalizedPath } from '../../lib/routes';
 import { footerContent, HOTEL_CONTACT } from '../../lib/site';
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 const { lang } = Astro.props;
 const dict = getDictionary(lang);
 const content = footerContent[lang];
+const homeHref = getLocalizedPath(lang, 'home');
 ---
 
 <footer class="bg-surfaceContainer px-8 pb-10 pt-20" data-animate>
@@ -20,7 +22,13 @@ const content = footerContent[lang];
     <div>
       <h2 class="mb-4 text-xs uppercase tracking-[0.2em] text-primary">{dict.footer.hotel}</h2>
       <ul class="space-y-2 text-sm text-secondary">
-        {content.hotel.map((item) => <li>{item}</li>)}
+        {content.hotel.map((item) => (
+          <li>
+            {item.anchor
+              ? <a class="transition-colors hover:text-primary" href={`${homeHref}${item.anchor}`}>{item.label}</a>
+              : item.label}
+          </li>
+        ))}
       </ul>
     </div>
     <div>
