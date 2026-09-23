@@ -1,0 +1,41 @@
+---
+import type { Room } from '../../data/rooms';
+import { type Lang, useTranslations } from '../../i18n/utils';
+import { getLocalizedPath } from '../../lib/routes';
+import SmartImage from '../media/SmartImage.astro';
+
+interface Props {
+  lang: Lang;
+  room: Room;
+}
+
+const { lang, room } = Astro.props;
+const t = useTranslations(lang);
+const roomName = lang === 'es' ? room.nameEs : room.nameEn;
+const roomDescription = lang === 'es' ? room.descEs : room.descEn;
+const categoryLabel = t(`rooms.${room.category === 'habitaciones' ? 'rooms' : room.category}`);
+const href = `${getLocalizedPath(lang, 'suites')}/${room.slug}`;
+---
+
+<a
+  href={href}
+  class="room-card card-editorial group flex flex-col overflow-hidden rounded-3xl bg-surfaceContainerLowest shadow-editorial"
+  data-room-card
+  data-room-category={room.category}
+>
+  <div class="card-media h-60 w-full sm:h-72">
+    <SmartImage src={room.image} alt={roomName} width={1200} height={960} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" class="h-full w-full object-cover" />
+  </div>
+  <div class="flex flex-1 flex-col p-6">
+    <p class="mb-2 text-[10px] uppercase tracking-[0.2em] text-secondary">{categoryLabel}</p>
+    <h3 class="mb-2 text-2xl font-headline">{roomName}</h3>
+    <p class="mb-4 text-sm text-secondary">{roomDescription}</p>
+    <div class="mb-5 flex flex-wrap gap-2">
+      {room.features.map((feature) => <span class="pill">{feature}</span>)}
+    </div>
+    <div class="mt-auto flex items-center justify-between text-sm">
+      <span class="font-medium text-primary">{room.price} {t('rooms.perNight')}</span>
+      <span class="editorial-link">{t('rooms.viewSuite')} <span class="card-arrow" aria-hidden="true">→</span></span>
+    </div>
+  </div>
+</a>

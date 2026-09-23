@@ -1,0 +1,156 @@
+---
+import { restaurantHighlights, type RestaurantHighlight } from '../../data/restaurant';
+import { getDictionary, type Lang, useTranslations } from '../../i18n/utils';
+import { getLocalizedPath } from '../../lib/routes';
+import SmartImage from '../media/SmartImage.astro';
+
+interface Props {
+  lang: Lang;
+  item: RestaurantHighlight;
+}
+
+const { lang, item } = Astro.props;
+const dict = getDictionary(lang);
+const d = dict.restaurantDetail;
+const t = useTranslations(lang);
+const restaurantHref = getLocalizedPath(lang, 'restaurant');
+const reserveHref = getLocalizedPath(lang, 'reserve');
+const longText = item.long[lang];
+const highlights = item.highlights[lang];
+const other = restaurantHighlights.find((candidate) => candidate.slug !== item.slug);
+---
+
+<section class="bg-surface px-4 pb-14 pt-8 sm:px-6 md:px-8 md:pb-20 md:pt-12" data-animate>
+  <div class="mx-auto max-w-7xl">
+    <nav aria-label={lang === 'es' ? 'Ruta de navegación' : 'Breadcrumb'} class="mb-8 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-secondary">
+      <a href={restaurantHref} class="transition-colors hover:text-primary">{t('nav.restaurant')}</a>
+      <span aria-hidden="true" class="text-outlineVariant">—</span>
+      <span class="text-onBackground">{item.cardTitle[lang]}</span>
+    </nav>
+
+    <div class="grid gap-10 md:grid-cols-12 md:gap-16">
+      <div class="flex flex-col justify-center md:col-span-5">
+        <p class="mb-3 text-xs uppercase tracking-[0.28em] text-primary">{dict.pages.restaurant.eyebrow}</p>
+        <h1 class="text-4xl font-headline leading-none text-onBackground sm:text-5xl md:text-6xl">{item.cardTitle[lang]}</h1>
+        <p class="mt-5 max-w-md text-secondary">{item.cardDescription[lang]}</p>
+        {item.price && (
+          <p class="mt-6 text-3xl font-headline text-primary">
+            {item.price} <span class="text-base text-secondary">{d.priceNote}</span>
+          </p>
+        )}
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href={reserveHref} class="cta-button px-8 py-3 text-sm text-white">{d.reserve}</a>
+          <a href={restaurantHref} class="editorial-link">{d.back}</a>
+        </div>
+      </div>
+      <div class="md:col-span-7">
+        <div class="card-media aspect-[4/3] rounded-3xl">
+          <SmartImage
+            src={item.image}
+            alt={item.cardTitle[lang]}
+            width={1400}
+            height={1050}
+            sizes="(min-width: 768px) 58vw, calc(100vw - 2rem)"
+            loading="eager"
+            fetchpriority="high"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{item.courses ? (
+  <section class="bg-surfaceContainerLow px-4 py-16 sm:px-6 md:px-8 md:py-24" data-animate>
+    <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-5">
+        <h2 class="text-3xl font-headline sm:text-4xl">{d.menuTitle}</h2>
+        {longText.map((paragraph) => <p class="mt-4 text-secondary">{paragraph}</p>)}
+        {item.pairing && <p class="mt-8 inline-block rounded-full border border-outlineVariant px-4 py-2 text-xs text-primary">{item.pairing[lang]}</p>}
+      </div>
+      <ol class="md:col-span-7" data-stagger>
+        {item.courses.map((course, index) => (
+          <li class="flex gap-6 py-5 first:pt-0 last:pb-0">
+            <span class="font-headline text-2xl italic text-outlineVariant" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <p class="font-headline text-xl">{course.name[lang]}</p>
+              <p class="mt-1 text-sm text-secondary">{course.detail[lang]}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+) : (
+  <section class="bg-surfaceContainerLow px-4 py-16 sm:px-6 md:px-8 md:py-24" data-animate>
+    <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-7">
+        <h2 class="mb-6 text-3xl font-headline sm:text-4xl">{d.story}</h2>
+        {longText.map((paragraph) => <p class="mt-4 text-secondary first:mt-0">{paragraph}</p>)}
+        {item.quote && (
+          <blockquote class="mt-10 border-l border-primary/30 pl-6 font-headline text-2xl italic leading-snug text-onBackground sm:text-3xl">
+            “{item.quote[lang]}”
+          </blockquote>
+        )}
+      </div>
+      <div class="md:col-span-5">
+        <h2 class="mb-6 text-3xl font-headline sm:text-4xl">{d.philosophy}</h2>
+        <ul class="space-y-4">
+          {highlights.map((entry) => (
+            <li class="flex items-start gap-3 text-secondary">
+              <span class="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true"></span>
+              <span>{entry}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="bg-surface px-4 py-16 sm:px-6 md:px-8 md:py-24" data-animate>
+  <div class="mx-auto max-w-7xl">
+    <div class="grid gap-4 sm:grid-cols-2" data-stagger>
+      {item.gallery.map((src, index) => (
+        <div class="card-media aspect-[4/3] rounded-2xl">
+          <SmartImage src={src} alt={`${item.cardTitle[lang]} — ${lang === 'es' ? 'detalle' : 'detail'} ${index + 1}`} width={1200} height={900} class="h-full w-full object-cover" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{other && (
+  <section class="bg-surfaceContainerLow px-4 py-16 sm:px-6 md:px-8 md:py-24" data-animate>
+    <div class="mx-auto max-w-7xl">
+      <h2 class="mb-10 text-3xl font-headline sm:text-4xl">{d.other}</h2>
+      <a
+        href={`${restaurantHref}/${other.slug}`}
+        class="card-editorial group grid overflow-hidden rounded-3xl bg-surfaceContainerLowest shadow-editorial sm:grid-cols-[1.1fr_1fr]"
+      >
+        <div class="card-media h-56 sm:h-full">
+          <SmartImage src={other.image} alt={other.cardTitle[lang]} width={1200} height={900} sizes="(min-width: 640px) 55vw, 100vw" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-col justify-center p-8 md:p-12">
+          <p class="mb-2 text-[10px] uppercase tracking-[0.2em] text-secondary">{dict.pages.restaurant.eyebrow}</p>
+          <h3 class="text-2xl font-headline sm:text-3xl">{other.cardTitle[lang]}</h3>
+          <p class="mt-3 text-sm text-secondary">{other.cardDescription[lang]}</p>
+          <span class="editorial-link mt-5">
+            {other.id === 'chef' ? d.chefLink : d.menuLink} <span class="card-arrow" aria-hidden="true">→</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+)}
+
+<section class="bg-onBackground px-4 py-14 text-white sm:px-6 md:px-8 md:py-20" data-animate>
+  <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+    <div>
+      <h2 class="text-3xl font-headline sm:text-4xl">{dict.detail.reserveHeading}</h2>
+      <p class="mt-2 text-sm text-white/70">{dict.detail.reserveNote}</p>
+    </div>
+    <a href={reserveHref} class="cta-button px-8 py-3 text-sm text-white">{d.reserve}</a>
+  </div>
+</section>

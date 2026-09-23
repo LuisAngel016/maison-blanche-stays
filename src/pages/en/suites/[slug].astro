@@ -1,0 +1,19 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import RoomDetail from '../../../components/detail/RoomDetail.astro';
+import { rooms, type Room } from '../../../data/rooms';
+
+export function getStaticPaths() {
+  return rooms.map((room) => ({ params: { slug: room.slug }, props: { room } }));
+}
+
+interface Props {
+  room: Room;
+}
+
+const { room } = Astro.props;
+---
+
+<PageLayout lang="en" route="suites" title={`${room.nameEn} | Maison Blanche`} description={room.descEn} image={room.image}>
+  <RoomDetail lang="en" room={room} />
+</PageLayout>

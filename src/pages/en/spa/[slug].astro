@@ -1,0 +1,19 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import SpaDetail from '../../../components/detail/SpaDetail.astro';
+import { spaTreatments, type Treatment } from '../../../data/spa';
+
+export function getStaticPaths() {
+  return spaTreatments.map((treatment) => ({ params: { slug: treatment.slug }, props: { treatment } }));
+}
+
+interface Props {
+  treatment: Treatment;
+}
+
+const { treatment } = Astro.props;
+---
+
+<PageLayout lang="en" route="spa" title={`${treatment.title.en} | Maison Blanche`} description={treatment.description.en} image={treatment.image}>
+  <SpaDetail lang="en" treatment={treatment} />
+</PageLayout>

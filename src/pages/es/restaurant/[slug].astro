@@ -1,0 +1,19 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import RestaurantDetail from '../../../components/detail/RestaurantDetail.astro';
+import { restaurantHighlights, type RestaurantHighlight } from '../../../data/restaurant';
+
+export function getStaticPaths() {
+  return restaurantHighlights.map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+
+interface Props {
+  item: RestaurantHighlight;
+}
+
+const { item } = Astro.props;
+---
+
+<PageLayout lang="es" route="restaurant" title={`${item.cardTitle.es} | Maison Blanche`} description={item.cardDescription.es} image={item.image}>
+  <RestaurantDetail lang="es" item={item} />
+</PageLayout>

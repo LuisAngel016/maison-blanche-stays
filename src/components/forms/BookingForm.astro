@@ -12,6 +12,7 @@ interface Props {
   description?: string;
   showIntro?: boolean;
   successId?: string;
+  preselectRoom?: string;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   description,
   showIntro = true,
   successId = `booking-success-${crypto.randomUUID()}`,
+  preselectRoom,
 } = Astro.props;
 const dict = getDictionary(lang);
 const theme = variant === 'light' ? 'light' : 'dark';
@@ -71,6 +73,7 @@ const roomOptions = rooms.map((room) => ({
           label={dict.booking.roomType}
           theme={theme}
           options={roomOptions}
+          selectedValue={preselectRoom}
         />
       </div>
       <TextareaField id={`${lang}-requests-${variant}`} label={dict.booking.requests} placeholder={dict.booking.placeholder} theme={theme} rows={showIntro ? 3 : 4} />

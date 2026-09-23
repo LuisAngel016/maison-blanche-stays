@@ -1,0 +1,121 @@
+---
+import { rooms, type Room } from '../../data/rooms';
+import { getDictionary, type Lang, useTranslations } from '../../i18n/utils';
+import { getLocalizedPath } from '../../lib/routes';
+import SmartImage from '../media/SmartImage.astro';
+import RoomCard from '../cards/RoomCard.astro';
+import BookingForm from '../forms/BookingForm.astro';
+
+interface Props {
+  lang: Lang;
+  room: Room;
+}
+
+const { lang, room } = Astro.props;
+const dict = getDictionary(lang);
+const d = dict.roomDetail;
+const t = useTranslations(lang);
+const roomName = lang === 'es' ? room.nameEs : room.nameEn;
+const shortDesc = lang === 'es' ? room.descEs : room.descEn;
+const longText = lang === 'es' ? room.longEs : room.longEn;
+const highlights = lang === 'es' ? room.highlightsEs : room.highlightsEn;
+const categoryLabel = t(`rooms.${room.category === 'habitaciones' ? 'rooms' : room.category}`);
+const suitesHref = getLocalizedPath(lang, 'suites');
+
+const sameCategory = rooms.filter((candidate) => candidate.slug !== room.slug && candidate.category === room.category);
+const otherCategories = rooms.filter((candidate) => candidate.slug !== room.slug && candidate.category !== room.category);
+const relatedRooms = [...sameCategory, ...otherCategories].slice(0, 3);
+---
+
+<section class="bg-surface px-4 pb-14 pt-8 sm:px-6 md:px-8 md:pb-20 md:pt-12" data-animate>
+  <div class="mx-auto max-w-7xl">
+    <nav aria-label={lang === 'es' ? 'Ruta de navegación' : 'Breadcrumb'} class="mb-8 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-secondary">
+      <a href={suitesHref} class="transition-colors hover:text-primary">{t('nav.suites')}</a>
+      <span aria-hidden="true" class="text-outlineVariant">—</span>
+      <span class="text-onBackground">{roomName}</span>
+    </nav>
+
+    <div class="grid gap-10 md:grid-cols-12 md:gap-16">
+      <div class="flex flex-col justify-center md:col-span-5">
+        <p class="mb-3 text-xs uppercase tracking-[0.28em] text-primary">{categoryLabel}</p>
+        <h1 class="text-4xl font-headline leading-none text-onBackground sm:text-5xl md:text-6xl">{roomName}</h1>
+        <p class="mt-5 max-w-md text-secondary">{shortDesc}</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          {room.features.map((feature) => <span class="pill">{feature}</span>)}
+        </div>
+        <p class="mt-8 text-3xl font-headline text-primary">
+          {room.price} <span class="text-base text-secondary">{t('rooms.perNight')}</span>
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="#reservar" class="cta-button px-8 py-3 text-sm text-white">{d.reserve}</a>
+          <a href={suitesHref} class="editorial-link">{d.back}</a>
+        </div>
+      </div>
+      <div class="md:col-span-7">
+        <div class="card-media aspect-[4/3] rounded-3xl">
+          <SmartImage
+            src={room.image}
+            alt={roomName}
+            width={1400}
+            height={1050}
+            sizes="(min-width: 768px) 58vw, calc(100vw - 2rem)"
+            loading="eager"
+            fetchpriority="high"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-surfaceContainerLow px-4 py-16 sm:px-6 md:px-8 md:py-24" data-animate>
+  <div class="mx-auto grid max-w-7xl gap-12 md:grid-cols-12 md:gap-16">
+    <div class="md:col-span-7">
+      <h2 class="mb-6 text-3xl font-headline sm:text-4xl">{d.about}</h2>
+      {longText.map((paragraph) => <p class="mt-4 max-w-2xl text-secondary first:mt-0">{paragraph}</p>)}
+    </div>
+    <div class="md:col-span-5">
+      <h2 class="mb-6 text-3xl font-headline sm:text-4xl">{d.amenities}</h2>
+      <ul class="space-y-4">
+        {highlights.map((item) => (
+          <li class="flex items-start gap-3 text-secondary">
+            <span class="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bg-surface px-4 py-16 sm:px-6 md:px-8 md:py-24" data-animate>
+  <div class="mx-auto max-w-7xl">
+    <h2 class="mb-8 text-3xl font-headline sm:text-4xl">{d.gallery}</h2>
+    <div class="grid gap-4 sm:grid-cols-2" data-stagger>
+      {room.gallery.map((src, index) => (
+        <div class="card-media aspect-[4/3] rounded-2xl">
+          <SmartImage src={src} alt={`${roomName} — ${lang === 'es' ? 'detalle' : 'detail'} ${index + 1}`} width={1200} height={900} class="h-full w-full object-cover" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="bg-surfaceContainerLow px-4 py-16 sm:px-6 md:px-8 md:py-24" data-animate>
+  <div class="mx-auto max-w-7xl">
+    <div class="mb-10 flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <h2 class="text-3xl font-headline sm:text-4xl">{d.other}</h2>
+      <a href={suitesHref} class="editorial-link">{d.viewAll} <span class="card-arrow" aria-hidden="true">→</span></a>
+    </div>
+    <div class="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3" data-stagger>
+      {relatedRooms.map((related) => <RoomCard lang={lang} room={related} />)}
+    </div>
+  </div>
+</section>
+
+<section id="reservar" class="scroll-mt-[88px] bg-onBackground px-4 py-16 text-white sm:px-6 md:px-8 md:py-28" data-animate>
+  <div class="mx-auto max-w-7xl">
+    <BookingForm lang={lang} variant="dark" preselectRoom={room.slug} heading={d.reserve} description={dict.booking.subtitle} />
+  </div>
+</section>
